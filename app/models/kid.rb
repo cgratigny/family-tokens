@@ -4,6 +4,10 @@ class Kid
 
   field :first_name, type: String
   field :last_name, type: String
+  field :date_of_birth, type: Date
+  field :tokens, type: Integer
 
   embeds_many :time_logs
+
+  scope :chronological, -> { order(date_of_birth: :desc)}
 end

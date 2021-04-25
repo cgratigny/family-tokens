@@ -1,0 +1,19 @@
+%h1 Listing time_logs
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @time_logs.each do |time_log|
+      %tr
+        %td= link_to 'Show', time_log
+        %td= link_to 'Edit', edit_time_log_path(time_log)
+        %td= link_to 'Destroy', time_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Time log', new_time_log_path
