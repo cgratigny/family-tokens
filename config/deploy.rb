@@ -48,37 +48,37 @@ namespace :deploy do
     end
   end
 
-  task :yarn do
-    on roles(:web), in: :sequence, wait: 1 do
-      execute "yarn install"
-    end
-  end
+  # task :yarn do
+  #   on roles(:web), in: :sequence, wait: 1 do
+  #     execute "yarn install"
+  #   end
+  # end
+  #
+  # desc 'Precompile assets locally and then rsync to web servers'
+  # task :precompile do
+  #   run_locally do
+  #     execute :rails, 'webpacker:clobber'
+  #     execute :rails, 'webpacker:compile'
+  #   end
+  #
+  #   on roles(:web), in: :parallel do |server|
+  #     run_locally do
+  #       execute :rsync,
+  #         "-a --delete ./public/packs/ #{server.user}@#{server.hostname}:#{shared_path}/public/packs/"
+  #     end
+  #   end
+  #
+  #   run_locally do
+  #     execute :rm, "-rf public/packs"
+  #   end
+  # end
 
-  desc 'Precompile assets locally and then rsync to web servers'
-  task :precompile do
-    run_locally do
-      execute :rails, 'webpacker:clobber'
-      execute :rails, 'webpacker:compile'
-    end
 
-    on roles(:web), in: :parallel do |server|
-      run_locally do
-        execute :rsync,
-          "-a --delete ./public/packs/ #{server.user}@#{server.hostname}:#{shared_path}/public/packs/"
-      end
-    end
-
-    run_locally do
-      execute :rm, "-rf public/packs"
-    end
-  end
-
-
-  after :publishing, :yarn
+  # after :publishing, :yarn
   after :publishing, :restart_passenger
 
   after :finishing, 'deploy:cleanup'
 
-  after 'deploy:updated', :precompile
+  # after 'deploy:updated', :precompile
 
 end
