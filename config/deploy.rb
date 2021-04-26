@@ -29,7 +29,7 @@ set :deploy_tag, "deploy_#{Time.now.strftime("%Y%m%d-%H%M%S")}"
 
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/master.key}
+set :linked_files, %w{config/master.key}
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
