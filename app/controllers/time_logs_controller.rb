@@ -24,11 +24,11 @@ class TimeLogsController < ApplicationController
     @time_log = TimeLog.new(time_log_params)
 
     respond_to do |format|
-      if @time_log.save!
+      if @time_log.save
         format.html { redirect_to [:kids], notice: "Time log was successfully created." }
         format.json { render :show, status: :created, location: @time_log }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to [:kids], notice: "Please choose an activity." }
         format.json { render json: @time_log.errors, status: :unprocessable_entity }
       end
     end

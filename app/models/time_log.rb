@@ -40,6 +40,7 @@ class TimeLog
   end
 
   def calculate_tokens
+    return unless self.starts_at.present? && self.stops_at.present?
     self.tokens = minutes.to_f / activity.token_duration.to_f
   end
 
