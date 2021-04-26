@@ -1,5 +1,7 @@
 %h1 Listing Time Entries
 
+= link_to 'New ', [:new, :admin, :time_log]
+
 %table
   %thead
     %tr
@@ -23,7 +25,3 @@
         %td= link_to 'Show', [:admin, time_log]
         %td= link_to 'Edit', [:edit, :admin, time_log]
         %td= link_to 'Destroy', [:admin, time_log], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Time log', [:new, :admin, :time_log]
