@@ -16,7 +16,11 @@ class TimeLog
   scope :chronological, -> { order(starts_at: :desc) }
 
   def duration
-    ((stops_at || Time.zone.now) - starts_at) / 1.minute
+    ((stops_at || Time.zone.now) - starts_at)
+  end
+
+  def minutes
+    (duration / 1.minute).round
   end
 
   private

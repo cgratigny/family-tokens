@@ -19,7 +19,7 @@
         %td= time_log.activity.name
         %td= time_log.starts_at
         %td= time_log.stops_at.present? ? time_log.stops_at : "In Progress..."
-        %td= time_log.duration.round(1)
+        %td= time_log.minutes
         %td= link_to 'Show', [:admin, time_log]
         %td= link_to 'Edit', [:edit, :admin, time_log]
         %td= link_to 'Destroy', [:admin, time_log], :method => :delete, :data => { :confirm => 'Are you sure?' }
