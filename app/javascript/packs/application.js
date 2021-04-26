@@ -11,6 +11,8 @@ Rails.start()
 Turbolinks.start()
 
 require("bootstrap")
+require("timeago")
+
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
     $(function () {

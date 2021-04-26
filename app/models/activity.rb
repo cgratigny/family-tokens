@@ -3,6 +3,7 @@ class Activity
   include Mongoid::Attributes::Dynamic
 
   field :name, type: String
+  field :in_progress_name, type: String
 
-  embeds_many :time_logs
+  has_many :time_logs
 end

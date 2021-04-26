@@ -1,0 +1,16 @@
+- @kids.each do |kid|
+  - time_log = kid.time_logs.in_progress.first
+  .row.align-items-center.tall-row
+    .col
+      = kid.first_name
+    .col
+      - if time_log.present?
+        = simple_form_for time_log do |f|
+          #{time_log.activity.in_progress_name} since #{time_log.starts_at.in_time_zone.to_s(:time)}
+          = f.input :stop_now, as: :hidden, input_html: { value: true }
+          = f.submit "Stop", class: :red
+      - else
+        = simple_form_for :time_log, url: :time_logs, method: :post do |f|
+          = f.input :activity_id, label: false, collection: Activity.all.map{ |activity| [activity.name, activity.id] }
+          = f.input :kid_id, as: :hidden, input_html: { value: kid.id }
+          = f.submit "Start", class: :green

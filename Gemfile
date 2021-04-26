@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'hamlit-rails'
 
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails'
+
+
 gem "mongoid"
 
 gem "amazing_print"
@@ -53,6 +57,14 @@ group :development do
   gem 'spring'
 
   gem 'better_errors'
+
+  gem "binding_of_caller"
+
+  gem "capistrano-rails"
+  gem 'capistrano-bundler', '~> 1.6'
+  gem "capistrano-rvm"
+  gem "capistrano-ssh-doctor", "~> 1.0"
+  gem 'capistrano-rake', require: false
 end
 
 group :test do

@@ -7,7 +7,7 @@ class Kid
   field :date_of_birth, type: Date
   field :tokens, type: Integer
 
-  embeds_many :time_logs
+  has_many :time_logs
 
   scope :chronological, -> { order(date_of_birth: :desc)}
 end

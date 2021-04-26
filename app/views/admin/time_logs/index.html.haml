@@ -1,8 +1,13 @@
-%h1 Listing time_logs
+%h1 Listing Time Entries
 
 %table
   %thead
     %tr
+      %th Name
+      %th Activity
+      %th Start
+      %th End
+      %th Duration
       %th
       %th
       %th
@@ -10,10 +15,15 @@
   %tbody
     - @time_logs.each do |time_log|
       %tr
-        %td= link_to 'Show', time_log
-        %td= link_to 'Edit', edit_time_log_path(time_log)
-        %td= link_to 'Destroy', time_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= time_log.kid.first_name
+        %td= time_log.activity.name
+        %td= time_log.starts_at
+        %td= time_log.stops_at.present? ? time_log.stops_at : "In Progress..."
+        %td= time_log.duration.round(1)
+        %td= link_to 'Show', [:admin, time_log]
+        %td= link_to 'Edit', [:edit, :admin, time_log]
+        %td= link_to 'Destroy', [:admin, time_log], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Time log', new_time_log_path
+= link_to 'New Time log', [:new, :admin, :time_log]
