@@ -32,7 +32,7 @@ set :deploy_tag, "deploy_#{Time.now.strftime("%Y%m%d-%H%M%S")}"
 set :linked_files, %w{config/master.key}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{log tmp/pids tmp/cache vendor/bundle public/packs tmp/db}
+set :linked_dirs, %w{log tmp/pids tmp/cache vendor/bundle public/assets/packs tmp/db}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
