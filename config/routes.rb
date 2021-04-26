@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :activities
   end
 
+get '/', to: 'kids#index'
   resources :kids
   resources :time_logs
 end
