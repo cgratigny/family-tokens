@@ -30,7 +30,7 @@ class TimeLog
   private
 
   def set_starts_at
-    self.starts_at = Time.zone.now
+    self.starts_at = Time.zone.now unless self.starts_at.present?
   end
 
   def set_stops_at

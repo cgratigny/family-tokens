@@ -6,8 +6,8 @@
         - @time_log.errors.full_messages.each do |msg|
           %li= msg
 
+  = f.input :kid_id, label: false, collection: Kid.all.map{ |kid| [kid.first_name, kid.id] }
   = f.input :activity_id, label: false, collection: Activity.all.map{ |activity| [activity.name, activity.id] }
-  = f.input :kid_id, label: false, collection: Kid.all.map{ |kid| [kid.first_name, kid.id] }          
   = f.input :starts_at
   = f.input :stops_at
 
