@@ -64,6 +64,6 @@ class Admin::ActivitiesController < Admin::BaseController
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:name, :in_progress_name)
+      params.require(:activity).permit(:name, :in_progress_name, :token_affect, :token_duration)
     end
 end

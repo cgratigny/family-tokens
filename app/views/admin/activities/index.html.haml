@@ -11,6 +11,8 @@
     - @admin_activities.each do |activity|
       %tr
         %td= activity.name
+        %td= activity.token_duration
+        %td= activity.token_affect.text
         %td= link_to 'Show', [:admin, activity]
         %td= link_to 'Edit', [:edit, :admin, activity]
         %td= link_to 'Destroy', [:admin, activity], :method => :delete, :data => { :confirm => 'Are you sure?' }

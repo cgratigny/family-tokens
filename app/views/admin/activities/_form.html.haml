@@ -8,6 +8,8 @@
 
   = f.input :name
   = f.input :in_progress_name
+  = f.input :token_affect, collection: TokenAffectOptions.select_options
+  = f.input :token_duration, hint: "How many minutes equals a token"
 
   .actions
     = f.submit 'Save'

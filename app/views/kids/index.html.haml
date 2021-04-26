@@ -4,7 +4,7 @@
     .col
       = kid.first_name
       %br
-        %small Tokens: #{kid.tokens}
+        %small Tokens: #{kid.token_balance}
     .col
       - if time_log.present?
         = simple_form_for time_log do |f|

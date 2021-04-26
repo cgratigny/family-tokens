@@ -70,6 +70,6 @@ class Admin::KidsController < Admin::BaseController
 
   # Only allow a list of trusted parameters through.
   def kid_params
-    params.require(:kid).permit(:first_name, :last_name, :date_of_birth, :tokens)
+    params.require(:kid).permit(:first_name, :last_name, :date_of_birth, :initial_token_balance)
   end
 end
