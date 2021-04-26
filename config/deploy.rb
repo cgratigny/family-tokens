@@ -20,6 +20,14 @@ set :repo_url, "git@github.com:cgratigny/family-tokens.git"
 # Default value for :pty is false
 set :pty, true
 
+set :log_level, :debug
+
+set :rvm_type, :user
+set :rvm_ruby_version, '2.7.1@familytokens'
+set :use_sudo, true
+set :deploy_tag, "deploy_#{Time.now.strftime("%Y%m%d-%H%M%S")}"
+
+
 # Default value for :linked_files is []
 # set :linked_files, %w{config/master.key}
 
