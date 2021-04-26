@@ -3,6 +3,8 @@
   .row.align-items-center.tall-row
     .col
       = kid.first_name
+      %br
+        %small Tokens: #{kid.tokens}
     .col
       - if time_log.present?
         = simple_form_for time_log do |f|
