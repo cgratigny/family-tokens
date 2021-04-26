@@ -41,7 +41,7 @@ set :deploy_tag, "deploy_#{Time.now.strftime("%Y%m%d-%H%M%S")}"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
@@ -56,37 +56,34 @@ namespace :deploy do
     end
   end
 
-  # task :yarn do
-  #   on roles(:web), in: :sequence, wait: 1 do
-  #     execute "yarn install"
-  #   end
-  # end
-  #
-  # desc 'Precompile assets locally and then rsync to web servers'
-  # task :precompile do
-  #   run_locally do
-  #     execute :rails, 'webpacker:clobber'
-  #     execute :rails, 'webpacker:compile'
-  #   end
-  #
-  #   on roles(:web), in: :parallel do |server|
-  #     run_locally do
-  #       execute :rsync,
-  #         "-a --delete ./public/packs/ #{server.user}@#{server.hostname}:#{shared_path}/public/packs/"
-  #     end
-  #   end
-  #
-  #   run_locally do
-  #     execute :rm, "-rf public/packs"
-  #   end
-  # end
+  task :yarn do
+    on roles(:web), in: :sequence, wait: 1 do
+      execute "yarn install"
+    end
+  end
 
+  desc 'Precompile assets locally and then rsync to web servers'
+  task :precompile do
+    run_locally do
+      execute :rails, 'webpacker:clobber'
+      execute :rails, 'webpacker:compile'
+    end
 
-  # after :publishing, :yarn
+    on roles(:web), in: :parallel do |server|
+      run_locally do
+        execute :rsync,
+          "-a --delete ./public/packs/ #{server.user}@#{server.hostname}:#{shared_path}/public/packs/"
+      end
+    end
+
+    run_locally do
+      execute :rm, "-rf public/packs"
+    end
+  end
+
+  after :publishing, :yarn
   after :publishing, :restart_passenger
 
   after :finishing, 'deploy:cleanup'
-
-  # after 'deploy:updated', :precompile
-
+  after 'deploy:updated', :precompile
 end
