@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FamilyTokens
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      = link_to "Gratigny Token Tracker", "/admin", class: "navbar-brand"
+      %button.navbar-toggler{ type: :toggler, "data-toggle": :collapse, "data-target": "#navbar"}
+        %span.navbar-toggler-icon
+
+      %div.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %li.nav-item
+            = link_to "Kids", "/admin/kids", class: "nav-link"
+          %li.nav-item
+            = link_to "Activities", "/admin/activities", class: "nav-link"
+          %li.nav-item
+            = link_to "Time Log", "/admin/time_logs", class: "nav-link"
+
+    .container
+      = yield

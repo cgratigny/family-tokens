@@ -1,5 +1,7 @@
 class Admin::BaseController < ApplicationController
 
+  layout "admin"
+
   if ["production"].include?(Rails.env)
     before_action :http_auth
     def http_auth
