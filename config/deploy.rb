@@ -23,7 +23,7 @@ set :pty, true
 set :log_level, :debug
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.7.1@familytokens'
+set :rvm_ruby_version, '2.7.1'
 set :use_sudo, true
 set :deploy_tag, "deploy_#{Time.now.strftime("%Y%m%d-%H%M%S")}"
 
