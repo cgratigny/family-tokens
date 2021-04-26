@@ -25,7 +25,7 @@ class Admin::TimeLogsController < Admin::BaseController
 
     respond_to do |format|
       if @time_log.save
-        format.html { redirect_to [:admin, @time_log], notice: "Time log was successfully created." }
+        format.html { redirect_to [:admin, :time_logs], notice: "Time log was successfully created." }
         format.json { render :show, status: :created, location: @time_log }
       else
         format.html { render :new, status: :unprocessable_entity }
