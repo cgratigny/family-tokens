@@ -1,8 +1,10 @@
-%h1 Listing Time Entries
+.row.align-items-center
+  .col-10
+    %h1 Listing Time Entries
+  .col
+    = link_to 'New ', [:new, :admin, :time_log]
 
-= link_to 'New ', [:new, :admin, :time_log]
-
-%table
+%table.table-striped.table
   %thead
     %tr
       %th Name
