@@ -5,11 +5,11 @@ production:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: battle_planner_production
+      database: family_tokens_production
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - 0.0.0.0:27017
+        - 10.116.0.3:27017
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -296,7 +296,7 @@ development:
 test:
   clients:
     default:
-      database: battle_planner_test
+      database: family_tokens_test
       hosts:
         - localhost:27017
       options:
