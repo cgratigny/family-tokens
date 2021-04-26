@@ -20,5 +20,6 @@ class Kid
     self.tokens_earned = time_logs.where(token_affect: :earn).sum(:tokens).abs
     self.tokens_spent = time_logs.where(token_affect: :spend).sum(:tokens).abs
     self.token_balance = (self.initial_token_balance || 0) + self.tokens_earned - self.tokens_spent
+    self.save!
   end
 end
