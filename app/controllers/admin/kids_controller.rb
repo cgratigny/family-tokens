@@ -5,7 +5,6 @@ class Admin::KidsController < Admin::BaseController
 
   # GET /kids or /kids.json
   def index
-    console
   end
 
   # GET /kids/1 or /kids/1.json
