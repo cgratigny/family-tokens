@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_family
   helper_method :current_family
+  helper_method :find_family_from_cookie
   around_action :set_time_zone, if: :current_family_present?
 
   def require_code!
-    unless find_family_from_cookie.present? || current_family.present?
+    unless find_family_from_cookie.present?
       redirect_to [:new, :family_code]
     end
   end

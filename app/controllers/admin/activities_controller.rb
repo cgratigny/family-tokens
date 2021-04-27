@@ -25,7 +25,7 @@ class Admin::ActivitiesController < Admin::BaseController
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to [:admin, @activity], notice: "Activity was successfully created." }
+        format.html { redirect_to [:admin, :activities], notice: "Activity was successfully created." }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Admin::ActivitiesController < Admin::BaseController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to [:admin, @activity], notice: "Activity was successfully updated." }
+        format.html { redirect_to [:admin, :activities], notice: "Activity was successfully updated." }
         format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -18,7 +18,7 @@
         .row.align-items-center.tall-row
           .col-2
           .col
-            - if current_family.present?
+            - if find_family_from_cookie.present?
               = current_family.name
               = link_to "Logout", :family_code, method: :delete
           .col-2
