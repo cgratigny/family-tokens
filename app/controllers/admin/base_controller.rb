@@ -1,5 +1,7 @@
 class Admin::BaseController < ApplicationController
 
+  before_action :authenticate_user!
+
   layout "admin"
 
   if ["production"].include?(Rails.env)

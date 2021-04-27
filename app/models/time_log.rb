@@ -1,7 +1,4 @@
-class TimeLog
-  include Mongoid::Document
-  include Mongoid::Attributes::Dynamic
-
+class TimeLog < TenantRecord
   field :starts_at, type: Time
   field :stops_at, type: Time
   field :stop_now, type: Boolean

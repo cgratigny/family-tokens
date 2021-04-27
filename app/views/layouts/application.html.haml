@@ -11,12 +11,16 @@
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %p.notice= notice
+    %p.alert= alert
     .header
       .container
         .row.align-items-center.tall-row
           .col-2
           .col
-            Gratigny Token Tracker
+            - if current_family.present?
+              = current_family.name
+              = link_to "Logout", :family_code, method: :delete
           .col-2
 
     .container

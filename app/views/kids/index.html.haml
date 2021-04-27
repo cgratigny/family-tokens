@@ -1,3 +1,8 @@
+- if @kids.none?
+  %em
+    No kids setup, please visit
+    = link_to "add one.", [:new, :admin, :kid]
+
 - @kids.each do |kid|
   - time_log = kid.time_logs.in_progress.first
   .row.align-items-center.tall-row
