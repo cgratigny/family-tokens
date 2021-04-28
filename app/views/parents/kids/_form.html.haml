@@ -1,0 +1,14 @@
+= simple_form_for [:parents, @kid] do |f|
+  - if @kid.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@kid.errors.count, "error")} prohibited this kid from being saved:"
+      %ul
+        - @kid.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :date_of_birth
+  = f.input :initial_token_balance, as: :integer
+
+  .actions
+    = f.submit 'Save'

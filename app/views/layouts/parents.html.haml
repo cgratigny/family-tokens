@@ -7,25 +7,24 @@
     = csrf_meta_tags
     = csp_meta_tag
 
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      = link_to current_family.name, "/admin/kids", class: "navbar-brand"
+      = link_to current_family.presenter.name, [:parents], class: "navbar-brand"
       %button.navbar-toggler{ type: :toggler, "data-toggle": :collapse, "data-target": "#navbar-content"}
         %span.navbar-toggler-icon
 
       %div.collapse.navbar-collapse#navbar-content
         %ul.navbar-nav.mr-auto
           %li.nav-item
-            = link_to "Kids", "/admin/kids", class: "nav-link"
+            = link_to "Kids", [:parents, :kids], class: "nav-link"
           %li.nav-item
-            = link_to "Activities", "/admin/activities", class: "nav-link"
+            = link_to "Activities", [:parents, :activities], class: "nav-link"
           %li.nav-item
-            = link_to "Time Log", "/admin/time_logs", class: "nav-link"
+            = link_to "Time Log", [:parents, :time_logs], class: "nav-link"
           %li.nav-item
-            = link_to "Settings", [:edit, :admin, :family], class: "nav-link"
+            = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
           %li.nav-item
             = link_to "Tracking", "/", class: "nav-link", target: :_blank
           %li.nav-item

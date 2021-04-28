@@ -1,7 +1,7 @@
 - if @kids.none?
   %em
-    No kids setup, please visit
-    = link_to "add one.", [:new, :admin, :kid]
+    No kids setup, please
+    = link_to "complete setup.", [:edit, :parents, :family_signup]
 
 - @kids.each do |kid|
   - time_log = kid.time_logs.in_progress.first

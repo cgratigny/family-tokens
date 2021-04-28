@@ -1,0 +1,19 @@
+%h1 Listing admin_families
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_families.each do |admin_family|
+      %tr
+        %td= link_to 'Show', admin_family
+        %td= link_to 'Edit', edit_admin_family_path(admin_family)
+        %td= link_to 'Destroy', admin_family, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Family', new_admin_family_path

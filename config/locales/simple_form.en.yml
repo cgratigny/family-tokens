@@ -12,7 +12,9 @@ en:
       default_message: "Please review the problems below:"
     labels:
       family:
-        username: "Family Username"
+        username: Family Username
+      user:
+        password_confirmation: Confirm Password
     hints:
       family:
         new:
@@ -21,6 +23,7 @@ en:
           username: "This code will be required to access the kid's check in and out screen."
           code: "This code will be required to access the kid's check in and out screen."
         name: "Usually your last name"
+
     # Examples
     # labels:
     #   defaults:
