@@ -21,6 +21,9 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem "after_party"
 
+# handle nested forms
+gem "cocoon"
+
 gem 'mongoid-multitenancy', '~> 2.0'
 
 gem 'hamlit-rails'
