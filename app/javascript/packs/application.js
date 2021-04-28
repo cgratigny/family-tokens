@@ -13,6 +13,8 @@ Turbolinks.start()
 require("bootstrap")
 require("timeago")
 
+require("@nathanvda/cocoon")
+
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
     $(function () {

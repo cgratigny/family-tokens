@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :set_current_family
   helper_method :current_family
   helper_method :find_family_from_cookie
+  helper_method :redirect_path
   around_action :set_time_zone, if: :current_family_present?
 
   def require_code!
@@ -32,6 +33,14 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone(&block)
     Time.use_zone(current_family.current_time_zone, &block)
+  end
+
+  def redirect_path(args = {})
+    if params[:return_path].present?
+      params[:return_path]
+    else
+      build_redirect_path(args)
+    end
   end
 
 end

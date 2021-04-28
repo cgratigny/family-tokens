@@ -1,9 +1,9 @@
-class TimeLogsController < ApplicationController
+class Parents::TimeLogsController < Parents::BaseController
   before_action :set_time_log, only: %i[ show edit update destroy ]
 
   # GET /time_logs or /time_logs.json
   def index
-    @time_logs = TimeLog.all
+    @time_logs = TimeLog.chronological
   end
 
   # GET /time_logs/1 or /time_logs/1.json
@@ -25,10 +25,10 @@ class TimeLogsController < ApplicationController
 
     respond_to do |format|
       if @time_log.save
-        format.html { redirect_to [:kids], notice: "Time log was successfully created." }
+        format.html { redirect_to [:parents, :time_logs], notice: "Time log was successfully created." }
         format.json { render :show, status: :created, location: @time_log }
       else
-        format.html { redirect_to [:kids], notice: "Please choose an activity." }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @time_log.errors, status: :unprocessable_entity }
       end
     end
@@ -38,7 +38,7 @@ class TimeLogsController < ApplicationController
   def update
     respond_to do |format|
       if @time_log.update(time_log_params)
-        format.html { redirect_to [:kids], notice: "Time log was successfully updated." }
+        format.html { redirect_to [:parents, @time_log], notice: "Time log was successfully updated." }
         format.json { render :show, status: :ok, location: @time_log }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,14 +57,13 @@ class TimeLogsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_time_log
-    @time_log = TimeLog.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_time_log
+      @time_log = TimeLog.find(params[:id])
+    end
 
-  # Only allow a list of trusted parameters through.
-  def time_log_params
-    params.require(:time_log).permit(:activity_id, :kid_id, :stop_now)
-  end
-
+    # Only allow a list of trusted parameters through.
+    def time_log_params
+      params.require(:time_log).permit(:kid_id, :activity_id, :starts_at, :stops_at)
+    end
 end

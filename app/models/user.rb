@@ -22,7 +22,6 @@ class User < ApplicationRecord
   field :family_name, type: String
 
   validates_presence_of :first_name, :last_name
-  validates_presence_of :family_name, if: :family_nil?
 
   ## Trackable
   # field :sign_in_count,      type: Integer, default: 0
@@ -43,11 +42,10 @@ class User < ApplicationRecord
   # field :locked_at,       type: Time
   include Mongoid::Timestamps
 
-  before_validation :create_family
+  before_validation :create_family, if: :family_nil?
 
   def create_family
-    return unless family_name.present?
-    self.family = Family.create!(name: self.family_name.downcase)
+    self.family = Family.create!(username: Family.generate_username(self.last_name.downcase))
   end
 
   def family_nil?
