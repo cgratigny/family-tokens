@@ -24,6 +24,8 @@ gem "after_party"
 # handle nested forms
 gem "cocoon"
 
+gem "sentry-ruby"
+gem "sentry-rails"
 
 gem 'hamlit-rails'
 
