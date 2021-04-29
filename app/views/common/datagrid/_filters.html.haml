@@ -1,0 +1,8 @@
+#filter-slide-menu
+  .slide-menu-content.slide-menu-top.clearfix
+    =link_to '#', class: 'filter-menu-close' do
+      %span.fal.fa-arrow-right
+  .slide-menu-content
+    %h3 Filters
+    #datagrid-form-container
+      = datagrid_form_for grid, url: request.path

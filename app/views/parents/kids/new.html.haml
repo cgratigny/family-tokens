@@ -1,5 +1,3 @@
-%h1 New kid
-
-= render 'form'
-
-= link_to 'Back', kids_path
+= render "common/content_box" do
+  %h2.mb-4 New Kid
+  = render 'form'

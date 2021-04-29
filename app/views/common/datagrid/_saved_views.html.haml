@@ -1,0 +1,32 @@
+#saved-views-config.modal.fade{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h2 Add Saved View
+      .modal-body
+        -# frozen_string_literal: true
+
+        = simple_form_for [:staff, SavedView.new] do |f|
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+          .form-inputs
+            = f.input :target, as: :hidden, input_html: { value: grid.class.name }
+            = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+            = f.input :url_parameters, as: :hidden, input_html: { value: current_path_hash.to_json }
+            = f.input :grid, as: :hidden, input_html: { value: grid.attributes.to_json }
+
+            .button-group
+              .button-group-item.button-combo.full-width
+                .button-group-item
+                  = f.input :name, label: false
+                .side-button.button-group-item
+                  = render "common/form_submit", f: f, save_text: "Add"
+            %br
+            %br
+            Manage your
+            = link_to "Saved Views", staff_saved_views_path
+
+      .modal-footer
+        %button.btn.btn-primary{"data-dismiss" => "modal", type: "button"}
+          Close

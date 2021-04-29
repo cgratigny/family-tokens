@@ -1,0 +1,16 @@
+.saved-views-selector.button-group-item.button-combo
+  .button-group-item
+    = select_tag "tag", options_for_select(current_user.saved_views.alphabetical.by_path(current_path_hash).map{|sv| [sv.name, sv.id, {'data-url': staff_saved_view_path(sv)}]}, (@saved_view.try(:chosen_saved_view_id) || params[:saved_view_id])), include_blank: "Saved Views"
+  %a.side-button.button-group-item{"data-target" => "#saved-views-config", "data-toggle" => "modal"}
+    %span.fal.fa-plus.icon-square.large-icon
+
+- if @saved_view.present? && (grid.respond_to?(:enable_share_link?) && grid.enable_share_link?)
+  = text_field_tag(:saved_view_url, staff_saved_view_url(@saved_view.try(:chosen_saved_view_id)), id: "copy-saved-view-link", class: "hide", readonly: true, autocomplete: "off")
+  = link_to "javascript:;", data: { target: "copy-saved-view-link", result: "copy-result" }, class: "clipboard-link button-group-item sm-fix" do
+    %span.fal.fa-share.icon-circle.large-icon.sm-small-icon
+
+  %div.flash-alerts.hide#copy-result
+    %div.flash-alert.alert-success
+      .alert-message
+        Permalink copied to your clipboard.
+      .close-alert.fal.fa-times

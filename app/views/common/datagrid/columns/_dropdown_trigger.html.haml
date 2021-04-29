@@ -1,0 +1,10 @@
+- when_open ||= nil
+- when_closed ||= nil
+-# if only when_closed is passed through then always show that value.
+.view-dropdown-row
+  - if when_closed && !when_open
+    = when_closed
+  - else
+    .when-closed= when_closed
+  - if when_open
+    .when-open= when_open

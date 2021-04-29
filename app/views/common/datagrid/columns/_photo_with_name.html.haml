@@ -1,0 +1,6 @@
+- link ||= [student_binder]
+- target ||= "_self"
+= link_to link, target: target do
+  = render "common/photos/thumb_photo", user: student_binder.student.user
+  %strong
+    = student_binder.user.full_name

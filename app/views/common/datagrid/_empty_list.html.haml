@@ -1,0 +1,5 @@
+.empty-title
+  - if grid.respond_to?("no_records_message")
+    = grid.no_records_message.html_safe
+  -else
+    No Records Found

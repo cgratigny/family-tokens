@@ -1,25 +1,8 @@
 %h1 Kids
 
-.text-right
+.text-right.mb-4
   = link_to [:new, :parents, :kid], class: "btn btn-primary" do
     %span.fas.fa-plus-circle
     Add Kid
 
-%table.table-striped.table.mt-4
-  %thead
-    %tr
-      %th First Name
-      %th Last Name
-      %th Birthday
-      %th
-
-
-    %tbody
-      - @kids.each do |kid|
-        %tr
-          %td= kid.first_name
-          %td= kid.last_name
-          %td= kid.date_of_birth.to_s
-          %td= link_to 'Edit', [:edit, :parents, kid]
-
-%br
+= render "list", grid: @kids_grid

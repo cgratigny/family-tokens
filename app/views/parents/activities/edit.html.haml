@@ -1,7 +1,2 @@
-%h1 Editing admin_activity
-
-= render 'form'
-
-= link_to 'Show', @admin_activity
-\|
-= link_to 'Back', admin_activities_path
+= render "common/content_box" do
+  = render 'form'

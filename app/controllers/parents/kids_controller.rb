@@ -64,7 +64,11 @@ class Parents::KidsController < Parents::BaseController
   private
 
   def build_collection
-    @kids = Kid.chronological
+    @kids_grid = KidsGrid.new(grid_params)
+  end
+
+  def grid_params
+    params[:kids_grid].present? ? params[:kids_grid].to_enum.to_h : {}
   end
 
   # Use callbacks to share common setup or constraints between actions.

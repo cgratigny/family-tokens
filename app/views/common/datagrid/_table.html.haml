@@ -1,0 +1,7 @@
+- table_classes ||= 'table-striped table mt-4'
+- if grid.assets.size == 0
+  = render "common/datagrid/empty_list", grid: grid
+- else
+  .table-wrap.table-contain{class: table_classes}
+    = datagrid_table(grid)
+    = render "common/datagrid/pagination", grid: grid

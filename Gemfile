@@ -24,7 +24,6 @@ gem "after_party"
 # handle nested forms
 gem "cocoon"
 
-gem 'mongoid-multitenancy', '~> 2.0'
 
 gem 'hamlit-rails'
 
@@ -36,6 +35,8 @@ gem "erb2haml"
 gem 'coffee-rails'
 
 gem "mongoid"
+gem 'mongoid-multitenancy', '~> 2.0'
+gem 'mongoid-history'
 
 gem "amazing_print"
 
@@ -43,6 +44,9 @@ gem 'simple_form'
 
 # list filter
 gem "datagrid", git: 'https://github.com/cgratigny/datagrid.git'
+gem "kaminari"
+gem "kaminari-mongoid"
+gem "mongoid_search"
 
 # to handle complex enum objects
 gem 'classy_enum'
