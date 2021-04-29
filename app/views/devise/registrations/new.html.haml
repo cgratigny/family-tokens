@@ -5,7 +5,6 @@
         .card-body.min-400
           %h2 Sign up
           = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-            - console
             = f.error_notification
             .form-inputs
               = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
