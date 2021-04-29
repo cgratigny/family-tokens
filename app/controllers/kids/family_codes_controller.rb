@@ -11,10 +11,10 @@ class Kids::FamilyCodesController < Kids::BaseController
     respond_to do |format|
       if code_valid?
         cookies[:family_session_code] = { value: find_family.session_code, expires: 1.year }
-        format.html { redirect_to root_url, notice: "Family code correct!" }
+        format.html { redirect_to redirect_path, notice: "Let's get tracking!" }
         format.json { render :show, status: :created, location: @family_code }
       else
-        format.html { render :new, alert: "Could not connect to family" }
+        format.html { render :new, alert: "Sorry, your family information isn't correct." }
         format.json { render json: @family_code.errors, status: :unprocessable_entity }
       end
     end
@@ -22,12 +22,16 @@ class Kids::FamilyCodesController < Kids::BaseController
 
   def destroy
     cookies.delete :family_session_code
-    redirect_to root_url
+    redirect_to redirect_path
   end
 
   def code_valid?
     return unless find_family.present?
     family_code_params[:code] == find_family.code
+  end
+
+  def build_redirect_path(args={})
+    [:kids]
   end
 
   def find_family

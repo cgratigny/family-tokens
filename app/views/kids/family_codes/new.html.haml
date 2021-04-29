@@ -1,9 +1,9 @@
-.row
-  .col-4
-  .col
-    %h1 Connect to Family
-    = render 'form'
-  .col-4
-
-.mt-4.text-center.small
-  = link_to "Parent Login", [:parents]
+.row.justify-content-center.mt-5
+  .col-12.col-md-10.col-lg-8
+    .row.justify-content-center.mb-3
+      .card.mb-4
+        .card-body.min-400
+          %h1 Kid Tracker Login
+          = render 'form'
+          .mt-4.text-center.small
+            = link_to "Parent Login", [:parents]
