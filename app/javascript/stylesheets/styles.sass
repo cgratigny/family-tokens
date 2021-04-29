@@ -1,3 +1,11 @@
+h1
+  font-size: 1.5rem
+  @extend .mt-2
+
+h2
+  font-size: 1.3rem
+  @extend .mt-2
+
 .tall-row
   height: 150px
   font-size: 1.5em
@@ -10,3 +18,33 @@
 
 .gray
   @extend .bg-secondary
+
+form
+  label, .hint
+    display: block
+  label
+    @extend .font-weight-bold
+    @extend .mt-2
+
+  .hint
+    @extend .font-weight-light
+    font-size: .8em
+
+  .field_with_errors
+    @extend .text-danger
+
+  span.error
+    display: block
+
+.min-400
+  min-width: 400px
+
+table.datagrid
+  @extend .table
+
+  thead
+    tr
+      th
+        .order
+          display: inline
+          @extend .small

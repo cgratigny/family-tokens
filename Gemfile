@@ -19,13 +19,24 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem "after_party"
+
+# handle nested forms
+gem "cocoon"
+
 
 gem 'hamlit-rails'
+
+gem 'devise'
+
+gem "erb2haml"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 
 gem "mongoid"
+gem 'mongoid-multitenancy', '~> 2.0'
+gem 'mongoid-history'
 
 gem "amazing_print"
 
@@ -33,6 +44,9 @@ gem 'simple_form'
 
 # list filter
 gem "datagrid", git: 'https://github.com/cgratigny/datagrid.git'
+gem "kaminari"
+gem "kaminari-mongoid"
+gem "mongoid_search"
 
 # to handle complex enum objects
 gem 'classy_enum'

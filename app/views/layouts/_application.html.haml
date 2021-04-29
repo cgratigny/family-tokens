@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FamilyTokens
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - if find_family_from_cookie.present?
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        = link_to current_family.name, [:kids]
+        %button.navbar-toggler{ type: :toggler, "data-toggle": :collapse, "data-target": "#navbar-content"}
+          %span.navbar-toggler-icon
+
+
+        %div.collapse.navbar-collapse#navbar-content
+          %ul.navbar-nav.mr-auto
+            %li.nav-item
+              = link_to "Parent Login", [:parents], class: "nav-link", target: :_blank
+            %li.nav-item
+              = link_to "Logout", [:kids, :family_code], method: :delete, class: "nav-link"
+
+    = render "layouts/flash"
+
+    .container
+      = yield

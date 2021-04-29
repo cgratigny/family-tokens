@@ -1,0 +1,12 @@
+-# frozen_string_literal: true
+= simple_form_for Family.new, url: [:kids, :family_code], method: :post do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :username
+    = f.input :code
+
+  .d-flex.flex-row-reverse
+    .p-2
+      = f.button :submit, value: "Connect", class: "btn btn-primary"

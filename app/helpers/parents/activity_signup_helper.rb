@@ -1,0 +1,2 @@
+module Parents::ActivitySignupHelper
+end

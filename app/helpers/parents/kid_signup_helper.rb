@@ -1,0 +1,2 @@
+module Parents::KidSignupHelper
+end

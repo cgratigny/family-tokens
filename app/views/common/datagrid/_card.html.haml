@@ -1,0 +1,43 @@
+.basic-grid-card{ class: datagrid_card_class(self, grid, asset, options) }
+  - toggle_items = grid.html_columns(*options[:columns]).select{ |c| c.options[:toggle] == true }
+  .block{ class: "#{"can-toggle" if toggle_items.any?}"}
+    .block-section-head{ class: "#{"toggle-trigger" if toggle_items.any?}"}
+      - above_title = grid.html_columns(*options[:columns]).select{ |c| (c.options[:card] == :above_title) }.first
+      - unless above_title.nil?
+        .above-title
+          = datagrid_value(grid, above_title, asset)
+
+      - title = grid.html_columns(*options[:columns]).select{ |c| (c.options[:card] == :title) }.first
+      - unless title.nil?
+        .card-title
+          %h3.card-title-text{ class: "column-#{title.name.to_s.dasherize}"}
+            = datagrid_value(grid, title, asset)
+
+    - subtitle = grid.html_columns(*options[:columns]).select{ |c| (c.options[:card] == :subtitle) }.first
+    - unless subtitle.nil?
+      .card-sub-title
+        %h3.card-title-text{ class: "column-#{subtitle.name.to_s.dasherize}"}
+          = datagrid_value(grid, subtitle, asset)
+
+    - detail_items = grid.html_columns(*options[:columns]).select{ |c| c.options[:card] == :detail }
+    - if detail_items.any?
+      .block-section-content
+        .card-details
+          - detail_items.each_with_index do |column, index|
+            - next if datagrid_value(grid, column, asset).nil?
+            .card-detail{ class: "column-#{column.name.to_s.dasherize} #{"toggle-target" if column.options[:toggle]}"}
+              - unless column.header.blank?
+                %strong= "#{column.header}:"
+              = datagrid_value(grid, column, asset)
+              %br
+
+    - cta = grid.html_columns(*options[:columns]).select{ |c| c.options[:card] == :cta }.first
+    - unless cta.nil?
+      .card-cta
+        = datagrid_value(grid, cta, asset)
+
+    - footer_items = grid.html_columns(*options[:columns]).select{ |c| c.options[:card] == :footer }
+    - if footer_items.any?
+      .icon-button-group{ class: "card-foot card-foot-#{footer_items.count}" }
+        - footer_items.each do |column|
+          = datagrid_value(grid, column, asset)

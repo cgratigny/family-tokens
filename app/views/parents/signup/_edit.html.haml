@@ -1,0 +1,10 @@
+= render "common/content_box" do
+  %h1 Setup #{signup_step.text}
+
+  .progress
+    .progress-bar{ role: :progressbar, style: "width: #{@signup.percentage}%", "aria-valuenow": "#{@signup.percentage}", "aria-valuemin": "0", "aria-valuemax": "100" }
+      Step #{signup_step.step_number}
+
+  .mt-4
+  %hr
+  = render "parents/#{signup_step.to_s}_signups/form"

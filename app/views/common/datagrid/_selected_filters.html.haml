@@ -1,0 +1,21 @@
+- if grid.present?
+  .tags-display
+    .active-filters
+      - grid.filters.each do |filter|
+        - next if grid.filter_value(filter).blank?
+        - next if filter.options[:hide_bubble].present?
+        - value = grid.filter_value(filter)
+        .filter-tag.filter-menu-trigger{ class: "#{grid.class.name.underscore} #{filter.name}"}
+          %span.filter-text
+            %span.tag_filter
+              - if filter.options[:header].present?
+                - if filter.options[:header].respond_to?(:call)
+                  = filter.options[:header].call
+                - else
+                  = filter.options[:header].to_s
+              - else
+                = filter.name.to_s.titleize
+              = ":"
+            %span.tag_value= filter_display(grid, filter)
+
+  .clear

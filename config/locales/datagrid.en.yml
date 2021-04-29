@@ -1,0 +1,5 @@
+en:
+  datagrid:
+    columns:
+      kids:
+        date_of_birth: Birthday

@@ -1,0 +1,5 @@
+.text-right
+  = hidden_field_tag :return_path, params[:return_path]
+  = link_to (defined? cancel_text) ? cancel_text : "Cancel", cancel_path, class: "btn btn-secondary button-group-item sm-half" if defined?(cancel_path) && !cancel_path.nil?
+  = button_tag(type: 'submit', class: "global-submit disable-with-warning btn btn-primary button-group-item sm-half", data: { disable_with: "Submitting" }) do
+    = (defined? save_text) ? save_text : "Save"
