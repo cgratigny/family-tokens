@@ -21,7 +21,7 @@
               = f.input :stop_now, as: :hidden, input_html: { value: true }
               = f.submit "Stop", class: "red btn"
           - else
-            - Activity.each.with_index(1) do |activity, index|
+            - Activity.enabled.each.with_index(1) do |activity, index|
               .p-2
                 = simple_form_for [:kids, TimeLog.new], url: [:kids, :time_logs], method: :post do |f|
                   = f.input :activity_id, as: :hidden, input_html: { value: activity.id }

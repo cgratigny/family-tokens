@@ -10,6 +10,6 @@
   = f.input :in_progress_name
   = f.input :token_affect, collection: TokenAffectOptions.select_options
   = f.input :token_duration, hint: "How many minutes equals a token"
+  = f.input :disabled, as: :boolean, label: "Disable"
 
-  .actions
-    = f.submit 'Save'
+  = render "common/forms/form_submit", cancel_path: [:parents, :activities], f: f, save_text: "Save"

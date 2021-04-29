@@ -1,26 +1,8 @@
-%h1 Listing Activities
-
-.text-right.mb-4
+.float-right
   = link_to [:new, :parents, :activity], class: "btn btn-primary" do
     %span.fas.fa-plus-circle
     Add Activity
 
-%table.table-striped.table
-  %thead
-    %tr
-      %th Activity
-      %th Duration
-      %th
-      %th
-      %th
-      %th
+%h1.mb-4.mt-4 Activities
 
-  %tbody
-    - @admin_activities.each do |activity|
-      %tr
-        %td= activity.name
-        %td= activity.token_duration
-        %td= activity.token_affect.try(:text)
-        %td= link_to 'Show', [:parents, activity]
-        %td= link_to 'Edit', [:edit, :parents, activity]
-        %td= link_to 'Destroy', [:parents, activity], :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render "list", grid: @activities_grid

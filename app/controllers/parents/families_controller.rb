@@ -22,7 +22,7 @@ class Parents::FamiliesController < Parents::BaseController
   end
 
   def build_redirect_path(args = {})
-    [:parents, :family]
+    [:edit, :parents, :family]
   end
 
   private

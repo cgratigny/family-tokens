@@ -1,6 +1,8 @@
 class Parents::ActivitiesController < Parents::BaseController
   before_action :set_activity, only: %i[ show edit update destroy ]
 
+  before_action :build_collection
+
   # GET /admin/activities or /admin/activities.json
   def index
     @admin_activities = Activity.all
@@ -57,6 +59,14 @@ class Parents::ActivitiesController < Parents::BaseController
   end
 
   private
+    def build_collection
+      @activities_grid = ActivitiesGrid.new(grid_params)
+    end
+
+    def grid_params
+      params[:activities_grid].present? ? params[:activities_grid].to_enum.to_h : {}
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
       @activity = Activity.find(params[:id])
@@ -64,6 +74,6 @@ class Parents::ActivitiesController < Parents::BaseController
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:name, :in_progress_name, :token_affect, :token_duration)
+      params.require(:activity).permit(:name, :in_progress_name, :token_affect, :token_duration, :disabled)
     end
 end
