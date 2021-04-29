@@ -16,7 +16,8 @@
           - if time_log.present?
             = simple_form_for [:kids, time_log] do |f|
               .small
-                #{time_log.activity.name} since #{time_log.starts_at.in_time_zone.to_s(:time)}
+                Started #{time_log.activity.name.downcase}
+                %time.timeago{ datetime: time_log.starts_at.in_time_zone }
               = f.input :stop_now, as: :hidden, input_html: { value: true }
               = f.submit "Stop", class: "red btn"
           - else

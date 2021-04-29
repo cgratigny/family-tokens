@@ -19,8 +19,12 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-        $('[data-toggle="popover"]').popover()
-    })
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="popover"]').popover()
+  })
 })
+
+jQuery(document).ready(function() {
+  jQuery("time.timeago").timeago();
+});
