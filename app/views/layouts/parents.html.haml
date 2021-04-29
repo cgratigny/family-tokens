@@ -26,14 +26,11 @@
           %li.nav-item
             = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
           %li.nav-item
-            = link_to "Tracking", "/", class: "nav-link", target: :_blank
+            = link_to "Tracking", [:kids], class: "nav-link", target: :_blank
           %li.nav-item
             = link_to "Logout", destroy_user_session_path, class: "nav-link", target: :_blank
 
-    - if notice.present?
-      %p.alert.alert-success{ role: :alert }= notice
-    - if alert.present?
-      %p.alert.alert-danger{ role: :alert }= alert
+    = render "layouts/flash"
 
     .container
       = yield

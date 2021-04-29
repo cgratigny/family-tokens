@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords"  }
 
+  resource :welcome
+
   namespace :parents do
     get '/', to: 'kids#index'
     resources :time_logs
@@ -14,8 +16,12 @@ Rails.application.routes.draw do
     resource :kid_signup
   end
 
-  root to: "kids#index"
-  resources :kids
-  resources :time_logs
-  resource :family_code
+  namespace :kids do
+    get '/', to: 'kids#index'
+    resources :kids
+    resources :time_logs
+    resource :family_code
+  end
+
+  root to: "welcomes#show"
 end

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def require_code!
     unless find_family_from_cookie.present?
-      redirect_to [:new, :family_code]
+      redirect_to [:new, :kids, :family_code]
     end
   end
 

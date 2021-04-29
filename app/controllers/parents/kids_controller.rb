@@ -26,7 +26,7 @@ class Parents::KidsController < Parents::BaseController
 
     respond_to do |format|
       if @kid.save
-        format.html { redirect_to [:parents, @kid], notice: "Kid was successfully created." }
+        format.html { redirect_to redirect_path, notice: "Kid was successfully created." }
         format.json { render :show, status: :created, location: @kid }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class Parents::KidsController < Parents::BaseController
   def update
     respond_to do |format|
       if @kid.update(kid_params)
-        format.html { redirect_to [:parents, @kid], notice: "Kid was successfully updated." }
+        format.html { redirect_to redirect_path, notice: "Kid was successfully updated." }
         format.json { render :show, status: :ok, location: @kid }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,6 +55,10 @@ class Parents::KidsController < Parents::BaseController
       format.html { redirect_to [:parents, :kids], notice: "Kid was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def build_redirect_path(args = {})
+    [:parents, :kids]
   end
 
   private

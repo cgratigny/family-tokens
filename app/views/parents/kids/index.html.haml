@@ -1,13 +1,17 @@
-%h1 Listing kids
+%h1 Kids
 
-%table.table-striped.table
+.text-right
+  = link_to [:new, :parents, :kid], class: "btn btn-primary" do
+    %span.fas.fa-plus-circle
+    Add Kid
+
+%table.table-striped.table.mt-4
   %thead
     %tr
       %th First Name
       %th Last Name
-      %th Bithday
-      %th Token Balance
-      %th{colspan: 3}
+      %th Birthday
+      %th
 
 
     %tbody
@@ -16,10 +20,6 @@
           %td= kid.first_name
           %td= kid.last_name
           %td= kid.date_of_birth.to_s
-          %td= kid.token_balance
-          %td= link_to 'Show', [:parents, kid]
           %td= link_to 'Edit', [:edit, :parents, kid]
 
 %br
-
-= link_to 'New Kid', [:new, :parents, :kid]

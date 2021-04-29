@@ -13,6 +13,7 @@ en:
     labels:
       family:
         username: Family Username
+        name: Family Name
       user:
         password_confirmation: Confirm Password
     hints:
@@ -20,6 +21,7 @@ en:
         new:
           code: "This is the code chosen in settings."
         edit:
+          name: "Your family name, usually your last name. But have fun with this!"
           username: "This code will be required to access the kid's check in and out screen."
           code: "This code will be required to access the kid's check in and out screen."
         name: "Usually your last name"

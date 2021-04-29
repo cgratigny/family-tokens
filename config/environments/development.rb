@@ -44,6 +44,8 @@ Rails.application.configure do
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
 
+  config.action_controller.action_on_unpermitted_parameters = :raise
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Debug mode disables concatenation and preprocessing of assets.

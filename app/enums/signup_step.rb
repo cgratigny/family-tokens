@@ -14,6 +14,10 @@ class SignupStep::Kid < SignupStep
   def step_number
     2
   end
+
+  def text
+    "Kids"
+  end
 end
 
 class SignupStep::Activity < SignupStep
@@ -23,5 +27,9 @@ class SignupStep::Activity < SignupStep
 
   def last_step?
     true
+  end
+
+  def text
+    "Activities"
   end
 end

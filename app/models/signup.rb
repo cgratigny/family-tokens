@@ -21,7 +21,7 @@ class Signup < ApplicationRecord
 
   def complete_step!(signup_step)
     self.signup_progress = self.signup_progress.merge(signup_step.to_s => { completed_at: Time.zone.now })
-    self.current_signup_step = SignupStep.reject{ |signup_step| self.step_completed?(signup_step) }.first
+    self.current_signup_step = SignupStep.reject{ |signup_step| self.step_completed?(signup_step) }.first || SignupStep.last
     self.save!
   end
 end

@@ -1,4 +1,4 @@
-class FamilyCodesController < ApplicationController
+class Kids::FamilyCodesController < Kids::BaseController
   # GET /family_codes/new
   def new
     if find_family_from_cookie.present?

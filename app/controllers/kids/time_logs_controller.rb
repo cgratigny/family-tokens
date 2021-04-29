@@ -1,4 +1,4 @@
-class TimeLogsController < ApplicationController
+class Kids::TimeLogsController < Kids::BaseController
   before_action :set_time_log, only: %i[ show edit update destroy ]
 
   # GET /time_logs or /time_logs.json
@@ -25,7 +25,7 @@ class TimeLogsController < ApplicationController
 
     respond_to do |format|
       if @time_log.save
-        format.html { redirect_to [:kids], notice: "Time log was successfully created." }
+        format.html { redirect_to [:kids], notice: "Started #{@time_log.activity.name} for #{@time_log.kid.first_name}." }
         format.json { render :show, status: :created, location: @time_log }
       else
         format.html { redirect_to [:kids], notice: "Please choose an activity." }
@@ -38,7 +38,7 @@ class TimeLogsController < ApplicationController
   def update
     respond_to do |format|
       if @time_log.update(time_log_params)
-        format.html { redirect_to [:kids], notice: "Time log was successfully updated." }
+        format.html { redirect_to [:kids], notice: "Stopped #{@time_log.activity.name} for #{@time_log.kid.first_name}." }
         format.json { render :show, status: :ok, location: @time_log }
       else
         format.html { render :edit, status: :unprocessable_entity }

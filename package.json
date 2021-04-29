@@ -2,6 +2,7 @@
   "name": "family-tokens",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@nathanvda/cocoon": "^1.2.14",
     "@popperjs/core": "^2.0.5",
     "@rails/actiontext": "^6.0.0",

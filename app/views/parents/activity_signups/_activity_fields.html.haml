@@ -1,0 +1,11 @@
+.nested-fields.mt-n1.mb-n3
+  .d-flex.flex-row.align-items-center
+    .p-2
+      = f.input :name
+    .p-2
+      = f.input :token_affect, label: "Earn / Spend", collection: TokenAffectOptions.select_options
+    .p-2
+      = f.input :token_duration, size: 3, label: "Minutes / Token"
+    .p-4
+      = link_to_remove_association f do
+        %span.fas.fa-minus-circle.text-danger

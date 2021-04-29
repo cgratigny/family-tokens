@@ -1,6 +1,6 @@
 class Kid < TenantRecord
   field :first_name, type: String
-  field :last_name, type: String
+  field :last_name, type: String, default: proc { family.name }
   field :date_of_birth, type: Date
 
   field :tokens_earned, type: Integer
@@ -9,9 +9,13 @@ class Kid < TenantRecord
   field :token_balance, type: Integer
   field :initial_token_balance, type: Integer
 
+  validates_presence_of :first_name, :last_name, :date_of_birth
+
   has_many :time_logs
 
   before_save :update_tokens
+
+  belongs_to :family
 
   scope :chronological, -> { order(date_of_birth: :desc)}
 

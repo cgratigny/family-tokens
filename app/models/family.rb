@@ -11,17 +11,21 @@ class Family < ApplicationRecord
   after_create :create_signup
 
   has_many :kids
-  accepts_nested_attributes_for :kids
-
+  has_many :activities
   has_one :signup
+
+  validates_presence_of :name, :code, :time_zone, if: :persisted?
+
+  accepts_nested_attributes_for :kids
+  accepts_nested_attributes_for :activities
 
   scope :by_username, -> (given_username) { where(username: given_username)}
 
-  def self.generate_username(given_username, iteration = 1)
-    if by_username(given_username).none?
-      given_username
+  def self.generate_username(given_username, iteration = "")
+    if by_username("#{given_username}#{iteration}").none?
+      "#{given_username}#{iteration}"
     else
-      generate_username("#{given_username}#{iteration}", iteration.to_i + 1)
+      generate_username(given_username, (iteration.to_i + 1))
     end
   end
 

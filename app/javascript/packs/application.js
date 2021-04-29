@@ -15,6 +15,8 @@ require("timeago")
 
 require("@nathanvda/cocoon")
 
+import "@fortawesome/fontawesome-free/css/all.css";
+
 import "../stylesheets/application";
 document.addEventListener("turbolinks:load", function() {
     $(function () {

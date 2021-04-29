@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :trackable and
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -45,7 +45,7 @@ class User < ApplicationRecord
   before_validation :create_family, if: :family_nil?
 
   def create_family
-    self.family = Family.create!(username: Family.generate_username(self.last_name.downcase))
+    self.family = Family.create!(name: self.last_name, username: Family.generate_username(self.last_name.downcase))
   end
 
   def family_nil?

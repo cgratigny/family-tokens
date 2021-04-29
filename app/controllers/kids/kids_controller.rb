@@ -1,4 +1,4 @@
-class KidsController < ApplicationController
+class Kids::KidsController < Kids::BaseController
   before_action :require_code!
 
   # GET /kids or /kids.json

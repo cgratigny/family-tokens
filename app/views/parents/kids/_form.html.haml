@@ -8,7 +8,5 @@
   = f.input :first_name
   = f.input :last_name
   = f.input :date_of_birth
-  = f.input :initial_token_balance, as: :integer
 
-  .actions
-    = f.submit 'Save'
+  = render "common/forms/form_submit", cancel_path: [:parents, :kids], f: f, save_text: "Save"
