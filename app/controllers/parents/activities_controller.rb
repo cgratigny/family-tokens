@@ -5,7 +5,6 @@ class Parents::ActivitiesController < Parents::BaseController
 
   # GET /admin/activities or /admin/activities.json
   def index
-    @admin_activities = Activity.all
   end
 
   # GET /admin/activities/1 or /admin/activities/1.json
@@ -59,21 +58,21 @@ class Parents::ActivitiesController < Parents::BaseController
   end
 
   private
-    def build_collection
-      @activities_grid = ActivitiesGrid.new(grid_params)
-    end
+  def build_collection
+    @activities_grid = ActivitiesGrid.new(grid_params)
+  end
 
-    def grid_params
-      params[:activities_grid].present? ? params[:activities_grid].to_enum.to_h : {}
-    end
+  def grid_params
+    params[:activities_grid].present? ? params[:activities_grid].to_enum.to_h : {}
+  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_activity
-      @activity = Activity.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_activity
+    @activity = Activity.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def activity_params
-      params.require(:activity).permit(:name, :in_progress_name, :token_affect, :token_duration, :disabled)
-    end
+  # Only allow a list of trusted parameters through.
+  def activity_params
+    params.require(:activity).permit(:name, :in_progress_name, :token_affect, :token_duration, :disabled)
+  end
 end

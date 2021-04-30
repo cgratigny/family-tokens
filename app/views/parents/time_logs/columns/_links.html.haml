@@ -1,0 +1,5 @@
+= link_to [:edit, :parents, time_log] do
+  .fas.fa-chevron-circle-right
+
+= link_to [:parents, time_log], :method => :delete, :data => { :confirm => 'Are you sure?' } do
+  %span.fas.fa-minus-circle.text-danger
