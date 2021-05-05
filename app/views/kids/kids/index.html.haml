@@ -9,8 +9,12 @@
   .row.align-items-center.medium-row
     .col
       = kid.first_name
-      %div.small Tokens: #{kid.token_balance}
-      %div.small #{kid.rewards_available.count} Rewards Available
+      %div.small
+        Tokens: #{kid.token_balance}
+        %br
+        +#{kid.tokens_earned_today.round} earned today
+        = " | "
+        %span.text-muted #{kid.rewards_available.count} Rewards Available
     .col.text-center
       .mt-n1
         .d-flex.flex-row.justify-content-center

@@ -32,6 +32,14 @@ class Kid < TenantRecord
     self.save!
   end
 
+  def tokens_earned_today
+    tokens_earned_since(Time.zone.today.beginning_of_day)
+  end
+
+  def tokens_earned_since(given_time)
+    time_logs.where({'starts_at' => {'$gte' => given_time }}).where(activity: { '$in': Activity.earns.map{ |activity| activity.id.to_s } } ).sum(:tokens)
+  end
+
   def update_tokens
     self.tokens_earned = time_logs.where(activity: { '$in': Activity.earns.map{ |activity| activity.id.to_s } } ).sum(:tokens)
     self.tokens_spent = time_logs.where(activity: { '$in': Activity.spends.map{ |activity| activity.id.to_s } } ).sum(:tokens)
