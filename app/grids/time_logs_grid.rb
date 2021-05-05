@@ -29,7 +29,7 @@ class TimeLogsGrid < ApplicationGrid
   end
 
   column(:tokens) do |model|
-    model.tokens.try(:round, 2)
+    "#{model.activity.token_affect.symbol}#{model.tokens.try(:round, 2)}"
   end
 
   column(:links, header: "", html: true) do |model|
