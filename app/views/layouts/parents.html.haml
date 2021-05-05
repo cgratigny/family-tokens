@@ -24,6 +24,14 @@
           %li.nav-item
             = link_to "Time Log", [:parents, :time_logs], class: "nav-link"
           %li.nav-item
+            = link_to "Rewards", [:parents, :rewards], class: "nav-link"
+          %li.nav-item
+            = link_to [:parents, :redemptions], class: "nav-link" do
+              Token Redemptions
+              - if Redemption.unfulfilled.any?
+                %sup.text-danger.font-weight-bold
+                  (#{Redemption.unfulfilled.count})
+          %li.nav-item
             = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
           %li.nav-item
             = link_to "Kid Tracker", [:kids], class: "nav-link", target: :_blank

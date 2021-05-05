@@ -1,0 +1,9 @@
+.float-right
+  = link_to [:new, :parents, :redemption], class: "btn btn-primary" do
+    %span.fas.fa-plus-circle
+    Redeem Tokens
+
+%h1.mb-4.mt-4 Token Redemptions
+
+
+= render "list", grid: @redemptions_grid

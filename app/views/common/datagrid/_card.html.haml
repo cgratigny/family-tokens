@@ -1,4 +1,4 @@
-.basic-grid-card{ class: datagrid_card_class(self, grid, asset, options) }
+.basic-grid-card.card{ class: datagrid_card_class(self, grid, asset, options), style: "width: 18rem;" }
   - toggle_items = grid.html_columns(*options[:columns]).select{ |c| c.options[:toggle] == true }
   .block{ class: "#{"can-toggle" if toggle_items.any?}"}
     .block-section-head{ class: "#{"toggle-trigger" if toggle_items.any?}"}

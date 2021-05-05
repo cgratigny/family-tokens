@@ -24,6 +24,10 @@ class TimeLog < TenantRecord
     (duration / 1.minute).round
   end
 
+  def in_progress?
+    self.stops_at.nil?
+  end
+
   private
 
   def set_starts_at

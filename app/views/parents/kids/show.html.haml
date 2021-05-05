@@ -17,24 +17,4 @@
 %p
   Redeemed: #{@kid.tokens_redeemed}
 
-%h3 Time Logs
-
-%table
-  %thead
-    %tr
-      %th Activity
-      %th Started
-      %th Stopped
-      %th Duration
-
-  %tbody
-    - @kid.time_logs.each do |time_log|
-      %tr
-        %td= time_log.activity.in_progress_name
-        %td= time_log.starts_at
-        %td= time_log.stops_at
-        %td= time_log.minutes
-
-= link_to 'Edit', [:edit, :parents, @kid]
-\|
 = link_to 'Back', [:parents, :kids]

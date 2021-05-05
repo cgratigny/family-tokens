@@ -1,6 +1,6 @@
 - card_cols ||= nil
 - if grid.assets.count == 0
-  = render "common/grid/empty_list", grid: grid
+  = render "common/datagrid/empty_list", grid: grid
 - else
   = datagrid_cards(grid, card_cols: card_cols)
-  = render "common/grid/pagination", grid: grid
+  = render "common/datagrid/pagination", grid: grid
