@@ -35,7 +35,7 @@ class Kid < TenantRecord
   def update_tokens
     self.tokens_earned = time_logs.where(activity: { '$in': Activity.earns.map{ |activity| activity.id.to_s } } ).sum(:tokens)
     self.tokens_spent = time_logs.where(activity: { '$in': Activity.spends.map{ |activity| activity.id.to_s } } ).sum(:tokens)
-    self.tokens_redeemed = self.redemptions.sum(&:tokens)
+    self.tokens_redeemed = self.redemptions.sum(:tokens)
     self.token_balance = self.initial_token_balance.to_i + self.tokens_earned - self.tokens_spent - self.tokens_redeemed
   end
 end
