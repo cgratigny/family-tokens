@@ -1,2 +1,0 @@
-module Parents::RedemptionsHelper
-end

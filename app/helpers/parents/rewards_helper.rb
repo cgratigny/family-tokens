@@ -1,2 +1,0 @@
-module Parents::RewardsHelper
-end
