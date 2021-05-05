@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :parents do
+    resources :redemptions
+  end
   devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords"  }
 
   resource :welcome
@@ -14,6 +17,9 @@ Rails.application.routes.draw do
     resource :family_signup
     resource :activity_signup
     resource :kid_signup
+
+    resources :rewards
+    resources :redemptions
   end
 
   namespace :kids do

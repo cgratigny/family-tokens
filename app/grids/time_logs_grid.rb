@@ -4,6 +4,10 @@ class TimeLogsGrid < ApplicationGrid
     TimeLog.all
   end
 
+  def row_class(asset)
+    asset.in_progress? ? "text-success font-weight-bold" : ""
+  end
+
   column(:kid_name) do |model|
     model.kid.first_name
   end

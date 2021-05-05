@@ -1,0 +1,14 @@
+= simple_form_for [:parents, @redemption] do |f|
+  - if @redemption.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@redemption.errors.count, "error")} prohibited this kid from being saved:"
+      %ul
+        - @redemption.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.input :kid_id, collection: Kid.all.map{ |kid| [kid.presenter.name_with_token_balance, kid.id] }
+  = f.input :reward_id, collection: Reward.active.map{ |reward| [reward.presenter.name_with_tokens, reward.id] }
+  = f.input :quantity, as: :integer
+  = f.input :fulfilled, as: :boolean, label: "Given to Kid"
+
+  = render "common/forms/form_submit", cancel_path: [:parents, :redemptions], f: f, save_text: "Save"

@@ -2,7 +2,7 @@ class ApplicationRecord
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
   include ClassyEnum::ActiveRecord
-  include Mongoid::History::Trackable
+  include Mongoid::Timestamps
 
   def presenter
   @presenter ||= "#{self.class.name}Presenter".constantize.new(self)

@@ -1,4 +1,4 @@
 .basic-grid{ class: "#{datagrid_grid_class(self, grid, options)}" }
   -if assets.any?
     - assets.each do |asset|
-      = render "common/grid/card", asset: asset, grid: grid, options: options
+      = render "common/datagrid/card", asset: asset, grid: grid, options: options

@@ -64,7 +64,7 @@ class Parents::TimeLogsController < Parents::BaseController
   private
 
   def build_collection
-    @time_logs_grid = TimeLogsGrid.new(grid_params)
+    @time_logs_grid = TimeLogsGrid.new({ order: :starts_at, descending: true}.merge(grid_params))
   end
 
   def grid_params
