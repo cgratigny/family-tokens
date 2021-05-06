@@ -23,6 +23,7 @@
               .small
                 Started #{time_log.activity.name.downcase}
                 %time.timeago{ datetime: time_log.starts_at.in_time_zone }
+                (at #{time_log.starts_at.in_time_zone.to_s(:time)})
               = f.input :stop_now, as: :hidden, input_html: { value: true }
               = f.submit "Stop", class: "red btn"
           - else
