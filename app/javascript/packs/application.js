@@ -28,3 +28,5 @@ document.addEventListener("turbolinks:load", function() {
 jQuery(document).ready(function() {
   jQuery("time.timeago").timeago();
 });
+
+import '../application/images/index.js';

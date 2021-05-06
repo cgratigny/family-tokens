@@ -9,6 +9,8 @@
 
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %link{rel: "icon", type: "image/png", href: asset_pack_path("media/application/images/favicon.png") }
   %body
     - if find_family_from_cookie.present?
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
