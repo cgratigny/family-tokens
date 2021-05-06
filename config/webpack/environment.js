@@ -1,5 +1,6 @@
 // config/webpack/environment.js
 const { environment } = require('@rails/webpacker')
+const erb = require('./loaders/erb')
 const webpack = require('webpack')
 
 // const coffee =  require('./loaders/coffee')
