@@ -18,6 +18,8 @@ class TransactionsGrid  < ApplicationGrid
     end
   end
 
+  column(:balance_change)
+
   column(:type) do |model|
     model.type.text
   end

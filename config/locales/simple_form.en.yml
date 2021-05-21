@@ -26,6 +26,8 @@ en:
           code: "This code will be required to access the kid's check in and out screen."
           token_value: "The amount, in dollars and cents, that each token is worth when converting to money. We use $.50"
         name: "Usually your last name"
+      transaction:
+        amount: "For a purchase, this will be pulled first from the money balance, then from the token balance."
 
     # Examples
     # labels:
