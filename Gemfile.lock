@@ -199,8 +199,17 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.5.1)
     minitest (5.14.4)
+    monetize (1.9.4)
+      money (~> 6.12)
+    money (6.13.8)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.14.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9.0)
+      money (~> 6.13.2)
+      railties (>= 3.0)
     mongo (2.14.0)
       bson (>= 4.8.2, < 5.0.0)
     mongoid (7.2.2)
@@ -225,10 +234,10 @@ GEM
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
     nio4r (2.5.7)
-    nokogiri (1.11.3)
+    nokogiri (1.11.5)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    nokogiri (1.11.3-x86_64-darwin)
+    nokogiri (1.11.5-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     public_suffix (4.0.6)
@@ -379,6 +388,7 @@ DEPENDENCIES
   kaminari
   kaminari-mongoid
   listen (~> 3.3)
+  money-rails
   mongoid
   mongoid-history
   mongoid-multitenancy (~> 2.0)

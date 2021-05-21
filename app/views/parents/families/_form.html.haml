@@ -6,6 +6,7 @@
   = f.input :name
   = f.input :username
   = f.input :code
+  = f.input :token_value
   = f.input :time_zone, collection: ActiveSupport::TimeZone::MAPPING
 
   = render "common/forms/form_submit", cancel_path: false, f: f

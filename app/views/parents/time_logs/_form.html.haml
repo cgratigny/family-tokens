@@ -8,8 +8,8 @@
 
   = f.input :kid_id, collection: Kid.all.map{ |kid| [kid.first_name, kid.id] }
   = f.input :activity_id, collection: Activity.all.map{ |activity| [activity.name, activity.id] }
-  = f.input :starts_at
-  = f.input :stops_at
+  = f.input :starts_at, as: :datetime
+  = f.input :stops_at, as: :datetime
 
   .actions
     = f.submit 'Save'

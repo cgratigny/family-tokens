@@ -1,0 +1,12 @@
+-# frozen_string_literal: true
+= simple_form_for [:parents, @transaction] do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :kid_id, collection: Kid.all.map{ |kid| [kid.presenter.name_with_token_balance, kid.id] }
+  = f.input :description
+  = f.input :amount
+  = f.input :date, as: :date
+  = f.input :type, collection: TransactionType.select_options
+
+  = render "common/forms/form_submit", cancel_path: [:parents, :transactions], f: f, save_text: "Save"

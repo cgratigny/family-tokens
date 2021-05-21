@@ -21,6 +21,8 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem "after_party"
 
+gem 'money-rails'
+
 # handle nested forms
 gem "cocoon"
 

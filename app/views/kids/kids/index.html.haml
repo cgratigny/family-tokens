@@ -14,7 +14,10 @@
         %br
         +#{kid.tokens_earned_today.round} earned today
         = " | "
-        %span.text-muted #{kid.rewards_available.count} Rewards Available
+        %span.text-muted
+          #{kid.rewards_available.count} Rewards Available
+          |
+          #{kid.money_balance} Available
     .col.text-center
       .mt-n1
         .d-flex.flex-row.justify-content-center

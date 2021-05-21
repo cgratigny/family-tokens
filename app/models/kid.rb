@@ -10,10 +10,13 @@ class Kid < TenantRecord
   field :initial_token_balance, type: Integer
   field :tokens_redeemed, type: Integer
 
+  field :money_balance, type: Money
+
   validates_presence_of :first_name, :last_name, :date_of_birth
 
   has_many :time_logs
   has_many :redemptions
+  has_many :transactions
 
   before_save :update_tokens
 
@@ -44,6 +47,7 @@ class Kid < TenantRecord
     self.tokens_earned = time_logs.where(activity: { '$in': Activity.earns.map{ |activity| activity.id.to_s } } ).sum(:tokens)
     self.tokens_spent = time_logs.where(activity: { '$in': Activity.spends.map{ |activity| activity.id.to_s } } ).sum(:tokens)
     self.tokens_redeemed = self.redemptions.sum(:tokens)
-    self.token_balance = self.initial_token_balance.to_i + self.tokens_earned - self.tokens_spent - self.tokens_redeemed
+    self.token_balance = self.initial_token_balance.to_i + self.tokens_earned - self.tokens_spent - self.tokens_redeemed + self.transactions.sum(:tokens)
+    self.money_balance = (self.token_balance * family.token_value) + self.transactions.by_type(:deposit).sum(&:amount).to_f
   end
 end

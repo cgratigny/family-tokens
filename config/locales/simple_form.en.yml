@@ -24,6 +24,7 @@ en:
           name: "Your family name, usually your last name. But have fun with this!"
           username: "This code will be required to access the kid's check in and out screen."
           code: "This code will be required to access the kid's check in and out screen."
+          token_value: "The amount, in dollars and cents, that each token is worth when converting to money. We use $.50"
         name: "Usually your last name"
 
     # Examples

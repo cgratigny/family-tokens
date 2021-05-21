@@ -34,6 +34,6 @@ class Parents::FamiliesController < Parents::BaseController
 
   # Only allow a list of trusted parameters through.
   def permitted_params
-    params.require(:family).permit(:name, :time_zone, :code, :username, kids_attributes: [:first_name, :last_name, :date_of_birth])
+    params.require(:family).permit(:name, :time_zone, :code, :username, :token_value, kids_attributes: [:first_name, :last_name, :date_of_birth])
   end
 end

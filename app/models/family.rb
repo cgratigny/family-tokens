@@ -4,6 +4,7 @@ class Family < ApplicationRecord
   field :code, type: String
   field :time_zone
   field :session_code, type: String
+  field :token_value, type: Float
 
   validates_uniqueness_of :username
 
