@@ -15,7 +15,7 @@ class Family < ApplicationRecord
   has_many :activities
   has_one :signup
 
-  validates_presence_of :name, :code, :time_zone, if: :persisted?
+  validates_presence_of :name, :code, :time_zone, :token_value, if: :persisted?
 
   accepts_nested_attributes_for :kids
   accepts_nested_attributes_for :activities
