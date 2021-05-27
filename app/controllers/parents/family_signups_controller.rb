@@ -8,7 +8,7 @@ class Parents::FamilySignupsController < Parents::BaseController
   end
 
   def permitted_params
-    params.require(:family).permit(:name, :time_zone, :code, :username, kids_attributes: [:first_name, :last_name, :date_of_birth])
+    params.require(:family).permit(:name, :time_zone, :code, :token_value, :username, kids_attributes: [:first_name, :last_name, :date_of_birth])
   end
 
 end

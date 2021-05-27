@@ -10,6 +10,9 @@
   = f.input :code
 
   %hr
+  = f.input :token_value
+
+  %hr
   = f.input :time_zone, collection: ActiveSupport::TimeZone::MAPPING
 
   = render "common/forms/form_submit", cancel_path: nil, f: f, save_text: "Next"
