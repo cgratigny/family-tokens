@@ -127,7 +127,6 @@ namespace :deploy do
   after 'deploy:starting', 'sidekiq:quiet'
 
   after 'deploy:updated', 'sidekiq:stop'
-  after 'deploy:published', 'deploy:after_party'
   after 'deploy:published', 'sidekiq:start'
   after 'deploy:failed', 'sidekiq:restart'
 end
