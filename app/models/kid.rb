@@ -31,6 +31,10 @@ class Kid < TenantRecord
   end
 
   def update_tokens!
+    KidUpdateWorker.perform_async(self.id)
+  end
+
+  def perform_update_tokens!
     self.update_tokens
     self.save!
   end

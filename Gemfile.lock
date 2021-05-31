@@ -125,6 +125,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
+    connection_pool (2.2.5)
     crass (1.0.6)
     debug_inspector (1.1.0)
     devise (4.7.3)
@@ -313,6 +314,10 @@ GEM
       concurrent-ruby
       faraday
     sexp_processor (4.15.2)
+    sidekiq (6.2.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -400,6 +405,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails
   sentry-ruby
+  sidekiq
   simple_form
   spring
   turbolinks (~> 5)

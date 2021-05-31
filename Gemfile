@@ -35,6 +35,8 @@ gem 'devise'
 
 gem "erb2haml"
 
+gem "sidekiq"
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 
