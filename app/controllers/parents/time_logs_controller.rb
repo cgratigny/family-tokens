@@ -64,7 +64,9 @@ class Parents::TimeLogsController < Parents::BaseController
   private
 
   def build_collection
-    @time_logs_grid = TimeLogsGrid.new({ order: :starts_at, descending: true}.merge(grid_params))
+    @time_logs_grid = TimeLogsGrid.new({ order: :starts_at, descending: true}.merge(grid_params)) do |scope|
+      scope.page(params[:page]).per("50")
+    end
   end
 
   def grid_params
