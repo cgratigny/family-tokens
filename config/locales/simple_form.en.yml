@@ -14,6 +14,7 @@ en:
       family:
         username: Family Username
         name: Family Name
+        token_value: Token Dollar Worth
       user:
         password_confirmation: Confirm Password
     hints:
@@ -23,7 +24,7 @@ en:
         edit:
           name: "Your family name, usually your last name. But have fun with this!"
           username: "This code will be required to access the kid's check in and out screen."
-          code: "This code will be required to access the kid's check in and out screen."
+          code: "This code will be required to access the kid's check in and out screen. We use our street number as it's something we want the kids to remember."
           token_value: "The amount, in dollars and cents, that each token is worth when converting to money. We use $.50"
         name: "Usually your last name"
       transaction:

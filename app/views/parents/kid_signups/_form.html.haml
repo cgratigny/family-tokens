@@ -3,7 +3,7 @@
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  = f.simple_fields_for :kids do |kid_f|
+  = f.simple_fields_for :kids, (@family.kids.none? ? Kid.new : nil) do |kid_f|
     = render 'kid_fields', f: kid_f
   .mb-4.text-center
     = link_to_add_association f, :kids do

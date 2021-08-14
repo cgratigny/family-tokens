@@ -5,7 +5,7 @@
     .p-2
       = f.input :token_affect, label: "Earn / Spend", collection: TokenAffectOptions.select_options
     .p-2
-      = f.input :token_duration, size: 3, label: "Minutes / Token"
+      = f.input :token_duration, size: 3, label: "Minutes / Token", collection: Activity.minute_range
     .p-4
       = link_to_remove_association f do
         %span.fas.fa-minus-circle.text-danger

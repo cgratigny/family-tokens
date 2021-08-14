@@ -13,4 +13,8 @@ class Activity < TenantRecord
 
   has_many :time_logs
 
+  def self.minute_range
+    [["15 minutes", 15], ["1/2 hour", 30], ["1 hour", 60]]
+  end
+
 end

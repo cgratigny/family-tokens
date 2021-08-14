@@ -2,23 +2,25 @@ class Family < ApplicationRecord
   field :name, type: String
   field :username, type: String
   field :code, type: String
-  field :time_zone
+  field :time_zone, default: ActiveSupport::TimeZone::MAPPING["Pacific Time (US & Canada)"]
   field :session_code, type: String
-  field :token_value, type: Float
+  field :token_value, type: Float, default: 0.5
 
   validates_uniqueness_of :username
 
   before_save :set_session_code
   after_create :create_signup
+  after_create :create_default_activities
 
   has_many :kids
   has_many :activities
   has_one :signup
+  has_many :users
 
   validates_presence_of :name, :code, :time_zone, :token_value, if: :persisted?
 
   accepts_nested_attributes_for :kids
-  accepts_nested_attributes_for :activities
+  accepts_nested_attributes_for :activities, allow_destroy: true
 
   scope :by_username, -> (given_username) { where(username: given_username)}
 
@@ -49,6 +51,10 @@ class Family < ApplicationRecord
    def create_signup
      return if signup.present?
      Signup.create!(family: self)
+   end
+
+   def create_default_activities
+     DefaultActivityService.new(family: self).perform
    end
 
 end
