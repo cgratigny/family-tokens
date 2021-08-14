@@ -1,4 +1,4 @@
-class EncryptionService
+class EncryptionService < ApplicationService
   KEY = ActiveSupport::KeyGenerator.new(
     Rails.application.credentials.dig(:secret_key_base)
   ).generate_key(

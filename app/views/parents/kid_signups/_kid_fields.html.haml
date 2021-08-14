@@ -5,7 +5,7 @@
     .p-2
       = f.input :last_name
     .p-2
-      = f.input :date_of_birth, label: "Birthday"
+      = f.input :date_of_birth, label: "Birthday", as: :date, start_year: Time.now.year, end_year: Time.now.year - 25
     .p-2
       = link_to_remove_association f do
         .text-danger.font-weight-bolder

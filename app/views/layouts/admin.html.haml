@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FamilyTokens
+    %title FamilyTokens Admin
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
@@ -20,26 +20,7 @@
       %div.collapse.navbar-collapse#navbar-content
         %ul.navbar-nav.mr-auto
           %li.nav-item
-            = link_to "Kids", [:parents, :kids], class: "nav-link"
-          %li.nav-item
-            = link_to "Activities", [:parents, :activities], class: "nav-link"
-          %li.nav-item
-            = link_to "Time Log", [:parents, :time_logs], class: "nav-link"
-          - if current_user.super_admin?
-            %li.nav-item
-              = link_to "Rewards", [:parents, :rewards], class: "nav-link"
-            %li.nav-item
-              = link_to [:parents, :redemptions], class: "nav-link" do
-                Reward Redemptions
-                - if Redemption.unfulfilled.any?
-                  %sup.text-danger.font-weight-bold
-                    (#{Redemption.unfulfilled.count})
-            %li.nav-item
-              = link_to "Transactions", [:parents, :transactions], class: "nav-link"
-          %li.nav-item
-            = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
-          %li.nav-item
-            = link_to "Token Tracker", [:kids], class: "nav-link", target: :_blank
+            = link_to "Families", [:admin, :families], class: "nav-link"
           %li.nav-item
             = link_to "Logout", destroy_user_session_path, class: "nav-link", target: :_blank
 

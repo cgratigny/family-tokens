@@ -16,21 +16,19 @@ class TimeLogsGrid < ApplicationGrid
     model.activity.name
   end
 
-  column(:starts_at, header: "Start") do |model|
-    model.starts_at
-  end
-
-  column(:stops_at, header: "End") do |model|
-    model.stops_at.present? ? model.stops_at : "In Progress..."
-  end
-
-  column(:minutes, header: "Duration") do |model|
+  column(:minutes) do |model|
     model.minutes
   end
 
   column(:tokens) do |model|
     "#{model.activity.token_affect.symbol}#{model.tokens.try(:round, 2)}"
   end
+
+  column(:details, header: "Details", html: true) do |model|
+    render partial: "parents/time_logs/columns/details_#{model.duration_type}", locals: { time_log: model }
+  end
+
+  column(:created_at, html: false)
 
   column(:links, header: "", html: true) do |model|
     render partial: "parents/time_logs/columns/links", locals: { time_log: model }

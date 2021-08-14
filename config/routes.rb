@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   resource :welcome
 
+  namespace :admin do
+    get '/', to: 'families#index'
+    resources :families
+  end
+
   namespace :parents do
     get '/', to: 'kids#index'
     resources :time_logs

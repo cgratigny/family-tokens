@@ -30,3 +30,4 @@ jQuery(document).ready(function() {
 });
 
 import '../application/images/index.js';
+import '../application/javascripts/index.js';

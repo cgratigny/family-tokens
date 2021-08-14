@@ -8,8 +8,9 @@
 
   = f.input :kid_id, collection: Kid.all.map{ |kid| [kid.first_name, kid.id] }
   = f.input :activity_id, collection: Activity.all.map{ |activity| [activity.name, activity.id] }
-  = f.input :starts_at
-  = f.input :stops_at
-
+  = f.input :duration_type, collection: DurationType.select_options, input_html: { data: { show: { manual: ["duration_minutes"], time_range: ["starts_at", "stops_at"] }, hide: { manual: ["starts_at", "stops_at"], time_range: ["duration_minutes"] } }, class: "show-elements hide-elements" }
+  = f.input :starts_at, wrapper_html: { data: { "logic-label" => "starts_at" }, class: :hide }
+  = f.input :stops_at, wrapper_html: { data: { "logic-label" => "stops_at" }, class: :hide }
+  = f.input :duration_minutes, wrapper_html: { data: { "logic-label" => "duration_minutes" }, class: :hide }
   .actions
     = f.submit 'Save'

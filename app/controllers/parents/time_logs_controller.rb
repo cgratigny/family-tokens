@@ -64,7 +64,7 @@ class Parents::TimeLogsController < Parents::BaseController
   private
 
   def build_collection
-    @time_logs_grid = TimeLogsGrid.new({ order: :starts_at, descending: true}.merge(grid_params)) do |scope|
+    @time_logs_grid = TimeLogsGrid.new({ order: :created_at, descending: true}.merge(grid_params)) do |scope|
       scope.page(params[:page]).per("50")
     end
   end
@@ -80,6 +80,6 @@ class Parents::TimeLogsController < Parents::BaseController
 
   # Only allow a list of trusted parameters through.
   def time_log_params
-    params.require(:time_log).permit(:kid_id, :activity_id, :starts_at, :stops_at)
+    params.require(:time_log).permit(:kid_id, :activity_id, :starts_at, :stops_at, :duration, :duration_type, :duration_minutes)
   end
 end

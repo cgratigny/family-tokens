@@ -1,0 +1,9 @@
+%small
+  - if time_log.stops_at.present?
+    = time_log.starts_at
+    = " - "
+    %br
+    = time_log.stops_at
+
+  - else
+    = "In Progress since #{time_log.starts_at}"
