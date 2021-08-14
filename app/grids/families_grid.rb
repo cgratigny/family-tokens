@@ -7,7 +7,7 @@ class FamiliesGrid  < ApplicationGrid
   column(:name)
 
   column(:kids_count) do |model|
-    model.kids.count
+    model.kids.unscoped.count
   end
 
   column(:token_value)
