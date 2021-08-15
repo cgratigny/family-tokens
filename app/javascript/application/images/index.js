@@ -1,2 +1,10 @@
 import "../images/favicon.png";
-import "../images/kids.jpg";
+import "../background_images/kids1.jpg";
+import "../background_images/kids2.jpg";
+import "../background_images/kids3.jpg";
+import "../background_images/kids4.jpg";
+import "../background_images/kids5.jpg";
+import "../background_images/kids6.jpg";
+import "../background_images/kids7.jpg";
+import "../background_images/kids8.jpg";
+import "../background_images/kids9.jpg";

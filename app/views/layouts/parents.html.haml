@@ -11,6 +11,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
     %link{rel: "icon", type: "image/png", href: asset_pack_path("media/application/images/favicon.png") }
+    = render "common/background_css"
   %body
     %nav.navbar.navbar-light.bg-light
       %button.navbar-toggler{ type: :toggler, "data-toggle": :collapse, "data-target": "#navbar-content"}
