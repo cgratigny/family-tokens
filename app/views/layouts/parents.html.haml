@@ -12,36 +12,42 @@
 
     %link{rel: "icon", type: "image/png", href: asset_pack_path("media/application/images/favicon.png") }
   %body
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      = link_to current_family.presenter.name, [:parents], class: "navbar-brand"
+    %nav.navbar.navbar-light.bg-light
       %button.navbar-toggler{ type: :toggler, "data-toggle": :collapse, "data-target": "#navbar-content"}
-        %span.navbar-toggler-icon
+        %span.pull-left.navbar-toggler-icon
+        = link_to [:parents], class: "navbar-brand" do
+          = current_family.presenter.name
+          - if page_title.present?
+            = " : #{page_title}"
 
-      %div.collapse.navbar-collapse#navbar-content
-        %ul.navbar-nav.mr-auto
-          %li.nav-item
-            = link_to "Kids", [:parents, :kids], class: "nav-link"
-          %li.nav-item
-            = link_to "Activities", [:parents, :activities], class: "nav-link"
-          %li.nav-item
-            = link_to "Time Log", [:parents, :time_logs], class: "nav-link"
-          - if current_user.super_admin?
+      - if signup_complete?
+        %div.collapse.navbar-collapse#navbar-content
+          %ul.navbar-nav.mr-auto
             %li.nav-item
-              = link_to "Rewards", [:parents, :rewards], class: "nav-link"
+              = link_to "Parent Dashboard", [:parents, :dashboard], class: "nav-link"
             %li.nav-item
-              = link_to [:parents, :redemptions], class: "nav-link" do
-                Reward Redemptions
-                - if Redemption.unfulfilled.any?
-                  %sup.text-danger.font-weight-bold
-                    (#{Redemption.unfulfilled.count})
+              = link_to "Kids", [:parents, :kids], class: "nav-link"
             %li.nav-item
-              = link_to "Transactions", [:parents, :transactions], class: "nav-link"
-          %li.nav-item
-            = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
-          %li.nav-item
-            = link_to "Token Tracker", [:kids], class: "nav-link", target: :_blank
-          %li.nav-item
-            = link_to "Logout", destroy_user_session_path, class: "nav-link", target: :_blank
+              = link_to "Activities", [:parents, :activities], class: "nav-link"
+            %li.nav-item
+              = link_to "Time Log", [:parents, :time_logs], class: "nav-link"
+            - if current_user.super_admin?
+              %li.nav-item
+                = link_to "Rewards", [:parents, :rewards], class: "nav-link"
+              %li.nav-item
+                = link_to [:parents, :redemptions], class: "nav-link" do
+                  Reward Redemptions
+                  - if Redemption.unfulfilled.any?
+                    %sup.text-danger.font-weight-bold
+                      (#{Redemption.unfulfilled.count})
+              %li.nav-item
+                = link_to "Transactions", [:parents, :transactions], class: "nav-link"
+            %li.nav-item
+              = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
+            %li.nav-item
+              = link_to "Kid's Token Tracker", [:kids], class: "nav-link", target: :_blank
+            %li.nav-item
+              = link_to "Logout", destroy_user_session_path, class: "nav-link", target: :_blank
 
     = render "layouts/flash"
 

@@ -1,9 +1,7 @@
-.float-right
+.actions
   = link_to [:new, :parents, :reward], class: "btn btn-primary" do
     %span.fas.fa-plus-circle
     Add Reward
 
-%h1.mb-4.mt-4 Rewards
-
-
+.clear
 = render "list", grid: @rewards_grid

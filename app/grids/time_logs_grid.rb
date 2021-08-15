@@ -34,4 +34,8 @@ class TimeLogsGrid < ApplicationGrid
     render partial: "parents/time_logs/columns/links", locals: { time_log: model }
   end
 
+  def no_records_message
+    "You don't have any time entries yet! Head over to the token tracker to start tracking your child's time. Or, you can create a time here."
+  end
+
 end

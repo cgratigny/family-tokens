@@ -1,8 +1,7 @@
-.float-right
+.actions
   = link_to [:new, :parents, :time_log], class: "btn btn-primary" do
     %span.fas.fa-plus-circle
     Add Time Entry
 
-%h1.mb-4.mt-4 Time Entries
-
+.clear
 = render "list", grid: @time_logs_grid

@@ -1,9 +1,8 @@
-.float-right
+.actions
   = link_to [:new, :parents, :kid], class: "btn btn-primary" do
     %span.fas.fa-plus-circle
     Add Kid
 
-%h1.mb-4.mt-4 Kids
-
+.clear
 
 = render "list", grid: @kids_grid

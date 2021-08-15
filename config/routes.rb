@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   end
 
   namespace :parents do
-    get '/', to: 'kids#index'
+    get '/', to: 'dashboards#show'
     resources :time_logs
     resources :kids
     resources :activities
 
+    resource :dashboard
     resource :family
     resource :signup
     resource :family_signup

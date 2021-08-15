@@ -1,5 +1,5 @@
 = render "common/content_box" do
-  %h1 Setup #{signup_step.text}
+  %h2 Setup #{signup_step.text}
 
   .progress
     .progress-bar{ role: :progressbar, style: "width: #{@signup.percentage}%", "aria-valuenow": "#{@signup.percentage}", "aria-valuemin": "0", "aria-valuemax": "100" }

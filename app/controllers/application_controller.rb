@@ -3,9 +3,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_family
   helper_method :find_family_from_cookie
   helper_method :redirect_path
+  helper_method :page_title
   around_action :set_time_zone, if: :current_family_present?
 
+  def page_title
+    nil
+  end
+
   def require_code!
+    return if current_user.present?
     unless find_family_from_cookie.present?
       redirect_to [:new, :kids, :family_code]
     end

@@ -25,7 +25,7 @@ class Kids::TimeLogsController < Kids::BaseController
 
     respond_to do |format|
       if @time_log.save
-        format.html { redirect_to [:kids], notice: "Started #{@time_log.activity.name} for #{@time_log.kid.first_name}." }
+        format.html { redirect_to redirect_path, notice: "Started #{@time_log.activity.name} for #{@time_log.kid.first_name}." }
         format.json { render :show, status: :created, location: @time_log }
       else
         format.html { redirect_to [:kids], notice: "Please choose an activity." }
@@ -38,7 +38,7 @@ class Kids::TimeLogsController < Kids::BaseController
   def update
     respond_to do |format|
       if @time_log.update(time_log_params)
-        format.html { redirect_to [:kids], notice: "Stopped #{@time_log.activity.name} for #{@time_log.kid.first_name}." }
+        format.html { redirect_to redirect_path, notice: "Stopped #{@time_log.activity.name} for #{@time_log.kid.first_name}." }
         format.json { render :show, status: :ok, location: @time_log }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,6 +53,14 @@ class Kids::TimeLogsController < Kids::BaseController
     respond_to do |format|
       format.html { redirect_to [:parents, :time_logs], notice: "Time log was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def redirect_path
+    if request.referer.present?
+      request.referer
+    else
+      [:kids]
     end
   end
 

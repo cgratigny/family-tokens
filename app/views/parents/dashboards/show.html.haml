@@ -1,0 +1,16 @@
+- @kids = Kid.all
+= render "common/kids/index"
+
+%br
+.row.align-items-center.medium-row.kid-row
+  .col
+    Kid's Token Tracker
+    = link_to [:kids], target: :token_tracker do
+      %span.fas.fa-external-link-square-alt
+    %div.small
+      %br The following is required to access the kid's tracker:
+      Username:
+      %strong #{@family.username}
+      %br
+      Code:
+      %strong #{@family.code}

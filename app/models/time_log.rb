@@ -22,6 +22,7 @@ class TimeLog < TenantRecord
   classy_enum_attr :duration_type, enum: "DurationType", default: :time_range
 
   def set_duration_minutes
+    return unless self.starts_at.present?
     self.duration_minutes = self.minutes
   end
 

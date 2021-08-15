@@ -1,10 +1,38 @@
+body
+  background: url("../application/images/kids.jpg") no-repeat center center fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  color: #111
+  font-family: Helvetica
+  // box-shadow: inset 0 0 0 50vw rgba(255, 255, 255, .6)
+
+html, body
+  height: 100%
+
+.card, .table-wrap, .kid-row
+  background-color: rgba(255, 255, 255, 0.7)
+  border-radius: .5em
+
+.row
+  padding: 1em
+  margin: 0 1em 0 1em
+
+.bg-light
+  background-color: rgba(255, 255, 255, 0.7) !important
+
 h1
   font-size: 1.5rem
   @extend .mt-2
 
 h2
-  font-size: 1.3rem
+  font-size: 1.2rem
   @extend .mt-2
+  text-transform: uppercase
+  letter-spacing: .2em
+  font-weight: 600
+  text-align: center
 
 .tall-row
   height: 150px
@@ -23,7 +51,9 @@ form
   label, .hint
     display: block
   label
-    @extend .font-weight-bold
+    font-size: .9em
+    letter-spacing: .1em
+    text-transform: capitalize
     @extend .mt-2
 
   .hint
@@ -51,3 +81,44 @@ table.datagrid
 
 .hide
   display: none
+
+a
+  color: #037d50
+  font-weight: bold
+
+.btn-primary, .btn-primary:hover, .progress-bar
+  background-color: #037d50
+  border: none
+
+a.nav-link
+  font-size: .9em
+
+.progress-bar
+  font-size: .8em
+  text-transform: uppercase
+
+.navbar-brand
+  text-transform: uppercase
+  font-family: serif
+
+.navbar-light
+  .navbar-toggler
+    border: none
+
+.clear
+  clear: both
+
+.actions
+  @extend .float-right
+  margin-top: 1em
+
+.parent-row
+  margin-top: 2em
+  .card
+    width: 100%
+
+.alert-success
+  color: #FFF
+  background-color: #155724
+  border-color: none
+  border: none
