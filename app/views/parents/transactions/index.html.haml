@@ -1,8 +1,8 @@
-.float-right
+.actions
   = link_to [:new, :parents, :transaction], class: "btn btn-primary" do
     %span.fas.fa-plus-circle
     Log Transaction
 
-%h1.mb-4.mt-4 Transactions
+.clear
 
 = render "list", grid: @transactions_grid

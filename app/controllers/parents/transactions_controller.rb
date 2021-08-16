@@ -27,7 +27,7 @@ class Parents::TransactionsController < Parents::BaseController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to redirect_path, notice: "Transaction was successfully created." }
+        format.html { redirect_to redirect_path, notice: "#{@transaction.type.text} for #{@transaction.kid} amount of #{@transaction.amount}" }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class Parents::TransactionsController < Parents::BaseController
   end
 
   def build_redirect_path(args = {})
-    [:parents, :transactions]
+    request.referer || [:parents, :transactions]
   end
 
   private

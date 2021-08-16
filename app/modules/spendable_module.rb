@@ -13,7 +13,7 @@ module SpendableModule
   end
 
   def update_kid_tokens
-    kid.reload.update_tokens!
+    kid.reload.update_tokens_now!
   end
 
   private

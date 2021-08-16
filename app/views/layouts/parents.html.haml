@@ -41,8 +41,8 @@
                   - if Redemption.unfulfilled.any?
                     %sup.text-danger.font-weight-bold
                       (#{Redemption.unfulfilled.count})
-              %li.nav-item
-                = link_to "Transactions", [:parents, :transactions], class: "nav-link"
+            %li.nav-item
+              = link_to "Transactions", [:parents, :transactions], class: "nav-link"
             %li.nav-item
               = link_to "Settings", [:edit, :parents, :family], class: "nav-link"
             %li.nav-item

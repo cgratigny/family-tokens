@@ -34,6 +34,10 @@ class Kid < TenantRecord
     KidUpdateWorker.perform_async(self.id)
   end
 
+  def update_tokens_now!
+    self.perform_update_tokens!
+  end
+
   def perform_update_tokens!
     self.update_tokens
     self.save!
@@ -53,6 +57,10 @@ class Kid < TenantRecord
     self.tokens_redeemed = self.redemptions.sum(:tokens)
     self.token_balance = self.initial_token_balance.to_i + self.tokens_earned - self.tokens_spent - self.tokens_redeemed + self.transactions.sum(:tokens)
     self.money_balance = self.transactions.sum{ |transaction| transaction.balance_change.to_f}.to_f
+  end
+
+  def available_money
+    money_balance + tokens_to_money
   end
 
   def tokens_to_money

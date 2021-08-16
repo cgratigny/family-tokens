@@ -12,7 +12,22 @@
         %span.text-muted
           -# #{kid.rewards_available.count} Rewards Available
           -# |
-          $#{kid.money_balance} Available
+          - if current_user.present?
+            = link_to "javascript:;;", class: "spend-money-trigger toggle-trigger", data: { target: "spend_money_#{kid.id}"} do
+              $#{kid.available_money} Available
+              %small
+                %span.fas.fa-plus
+            .hide.spend-money-form{ id: "spend_money_#{kid.id}"}
+              = simple_form_for [:parents, Transaction.new] do |f|
+                = f.input :kid_id, as: :hidden, input_html: { value: kid.id }
+                = f.input :date, as: :hidden, input_html: { value: Date.today }
+                = f.input :type, as: :hidden, input_html: { value: :purchase }
+                .quick-amount= f.input :amount, label: false, hint: false, input_html: { placeholder: "$" }
+                = f.button :button, class: "quick-submit" do
+                  %span.fas.fa-save
+          - else
+            $#{kid.available_money} Available
+
     .col.text-center
       .mt-n1
         .d-flex.flex-row.justify-content-center
