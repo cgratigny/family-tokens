@@ -1,17 +1,15 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title FamilyTokens
-    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title Family Tokens
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
     = csrf_meta_tags
-    = csp_meta_tag
 
-    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "application"
+    = javascript_importmap_tags
 
-    %link{rel: "icon", type: "image/png", href: asset_pack_path("media/application/images/favicon.png") }
-    = render "common/background_css"
+    %link{rel: "icon", type: "image/png", href: asset_path("favicon.png") }
   %body
     %nav.navbar.navbar-light.bg-light
       %button.navbar-toggler{ type: :toggler, "data-toggle": :collapse, "data-target": "#navbar-content"}

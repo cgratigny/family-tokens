@@ -7,10 +7,10 @@
     = csrf_meta_tags
     = csp_meta_tag
 
-    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "application"
+    = javascript_importmap_tags
 
-    %link{rel: "icon", type: "image/png", href: asset_pack_path("media/application/images/favicon.png") }
+    %link{rel: "icon", type: "image/png", href: asset_path("favicon.png") }
     = render "common/background_css"
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light

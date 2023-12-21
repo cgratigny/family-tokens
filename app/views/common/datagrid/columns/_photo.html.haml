@@ -1,4 +1,4 @@
 - if student_binder_report.photo.present?
   = image_tag student_binder_report.photo, class: "photo-effect list-photo", skip_pipeline: true
 - else
-  = image_tag(asset_pack_path("media/application/images/no-photo.jpg"), class: "photo-effect list-photo")
+  = image_tag(asset_path("no-photo.jpg"), class: "photo-effect list-photo")

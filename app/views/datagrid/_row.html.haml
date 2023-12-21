@@ -1,0 +1,9 @@
+- dropdown_content = grid.html_columns(*options[:columns]).select{ |c| (c.options[:dropdown] == :dropdown_content) }.first
+%tr
+= grid.respond_to?(:row_id) ? grid.row_id(asset) :
+class="#{grid.respond_to?(:row_class) ? grid.row_class(asset) :} #{has-dropdown unless dropdown_content.nil?}" #{grid.respond_to?(:row_style) ? grid.row_style :}&gt;
+- grid.html_columns(*options[:columns]).each do |column|
+  - next if column == dropdown_content
+  %td
+  = datagrid_column_classes(grid, column)
+  "&gt;#{datagrid_value(grid, column, asset)}
