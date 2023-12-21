@@ -45,8 +45,6 @@ class User < ApplicationRecord
   # field :locked_at,       type: Time
   include Mongoid::Timestamps
 
-  before_validation :create_family, if: :family_nil?
-
   def create_family
     self.family = Family.create!(name: self.last_name, username: Family.generate_username(self.last_name.downcase))
   end

@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :page_title
   around_action :set_time_zone, if: :current_family_present?
 
+  skip_before_action :verify_authenticity_token
+
   def page_title
     nil
   end
