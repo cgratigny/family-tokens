@@ -1,6 +1,6 @@
 if Rails.env.production?
   Sentry.init do |config|
-    config.dsn = 'https://68bef547974d4bde822c4e81c3e78c27@o33120.ingest.sentry.io/5741697'
+    config.dsn = Rails.application.credentials.dig(Rails.env.to_sym, :sentry_dsn)
     config.breadcrumbs_logger = [:active_support_logger]
 
     # Set tracesSampleRate to 1.0 to capture 100%
